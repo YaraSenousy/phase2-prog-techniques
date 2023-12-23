@@ -152,6 +152,11 @@
     <ClCompile Include="GUI\Output.cpp">
       <Filter>GUI Classes</Filter>
     </ClCompile>
+    <ClCompile Include="AddStart.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Start.cpp">
+      <Filter>Statements</Filter>
     <ClCompile Include="AddRead.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
@@ -255,6 +260,10 @@
     <ClInclude Include="GUI\UI_Info.h">
       <Filter>GUI Classes</Filter>
     </ClInclude>
+    <ClInclude Include="AddStart.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Start.h">
     <ClInclude Include="AddRead.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
