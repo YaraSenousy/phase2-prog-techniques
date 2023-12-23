@@ -99,11 +99,35 @@ Statement *ApplicationManager::GetStatement(Point P) const
 	///Add your code here to search for a statement given a point P(x,y)	
 	///WITHOUT breaking class responsibilities
 	/*for (int i{}; i < StatCount; i++) {
+	* //check if the point is within the statement 
 		if (StatList[i]->InStatement(P)) {
 			return StatList[i];
 		}
 	}*/
 	return NULL;
+}
+
+//==================================================================================//
+//						Connectors Management Functions								//
+//==================================================================================//
+
+//add a connector to the list of connectors
+void ApplicationManager::AddConnector(Connector* pConn)
+{
+	if (ConnCount < MaxCount)
+		ConnList[ConnCount++] = pConn;
+}
+//check if the Point belongs to a connector
+Connector* ApplicationManager::GetConnector(Point P) const
+{
+	//loop on all connectors
+	for (int i{}; i++; i < ConnCount) {
+		//check if the point belong to a connector and return a pointer to it
+		if (ConnList[i]->IsConnector(P)) {
+			ConnList[i];
+		}
+	}
+	return nullptr;
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Returns the selected statement

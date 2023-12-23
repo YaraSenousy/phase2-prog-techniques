@@ -40,3 +40,14 @@ void Connector::Draw(Output* pOut) const
 	pOut->DrawConnector(Start, End, Selected);
 }
 
+bool Connector::IsConnector(Point p)
+{
+	if ((p.y == Start.y) && (p.x > Start.x) && (p.x < End.x)) {
+		return true;
+	}
+	else if ((p.x == End.x) && (p.y > Start.y) && (p.y < End.y))
+		return true;
+	else
+		return false;
+}
+

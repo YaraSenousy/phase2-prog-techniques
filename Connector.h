@@ -29,7 +29,7 @@ public:
 	Point getEndPoint();
 
 	void Draw(Output* pOut) const;
-	
+	bool IsConnector(Point p);
 
 };
 
