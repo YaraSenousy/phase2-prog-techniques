@@ -164,6 +164,9 @@
     <ClCompile Include="AddEnd.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="End.cpp">
+      <Filter>Statements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -263,6 +266,9 @@
     </ClInclude>
     <ClInclude Include="AddEnd.h">
       <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="End.h">
+      <Filter>Statements</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
