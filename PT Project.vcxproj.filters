@@ -129,9 +129,6 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c">
       <Filter>CMUgraphicsLib\JPEG</Filter>
     </ClCompile>
-    <ClCompile Include="ApplicationManager.cpp">
-      <Filter>Application Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Statements\Statement.cpp">
       <Filter>Statements</Filter>
     </ClCompile>
@@ -160,6 +157,17 @@
     </ClCompile>
     <ClCompile Include="Start.cpp">
       <Filter>Statements</Filter>
+    <ClCompile Include="AddRead.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Read.cpp" />
+    <ClCompile Include="AddVariableAssign.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableAssign.cpp">
+      <Filter>Statements</Filter>
+    <ClCompile Include="ApplicationManager.cpp">
+      <Filter>CMUgraphicsLib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +264,14 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Start.h">
+    <ClInclude Include="AddRead.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Read.h" />
+    <ClInclude Include="AddVariableAssign.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableAssign.h">
       <Filter>Statements</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,7 @@
 #include "ApplicationManager.h"
 #include "Actions\AddValueAssign.h"
+#include "AddRead.h"
+#include "AddVariableAssign.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -64,6 +66,14 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		
 		case STATUS:
 			return;
+
+		case ADD_VAR_ASSIGN:
+			pAct = new AddVariableAssign(this);
+			break;
+
+		case ADD_READ:
+			pAct = new AddRead(this);
+			break;
 	}
 	
 	//Execute the created action
@@ -98,7 +108,11 @@ Statement *ApplicationManager::GetStatement(Point P) const
 
 	///Add your code here to search for a statement given a point P(x,y)	
 	///WITHOUT breaking class responsibilities
-
+	/*for (int i{}; i < StatCount; i++) {
+		if (StatList[i]->InStatement(P)) {
+			return StatList[i];
+		}
+	}*/
 	return NULL;
 }
 ////////////////////////////////////////////////////////////////////////////////////
