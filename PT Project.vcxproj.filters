@@ -129,9 +129,6 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c">
       <Filter>CMUgraphicsLib\JPEG</Filter>
     </ClCompile>
-    <ClCompile Include="ApplicationManager.cpp">
-      <Filter>Application Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Statements\Statement.cpp">
       <Filter>Statements</Filter>
     </ClCompile>
@@ -154,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="GUI\Output.cpp">
       <Filter>GUI Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationManager.cpp">
+      <Filter>CMUgraphicsLib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
