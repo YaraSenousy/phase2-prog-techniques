@@ -1,5 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\AddValueAssign.h"
+#include "AddStart.h"
 #include "AddRead.h"
 #include "AddVariableAssign.h"
 #include "GUI\Input.h"
@@ -74,6 +75,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_READ:
 			pAct = new AddRead(this);
 			break;
+
+		case ADD_START:
+			pAct = new AddStart(this);
 	}
 	
 	//Execute the created action
