@@ -144,8 +144,8 @@ ActionType Input::GetUserAction() const
 			case ITM_SWTICHTOSIM: return SWITCH_SIM_MODE;
 			case ITM_START: return ADD_START;
 			case ITM_END: return ADD_END;
-			case ITM_INPUT: return ADD_WRITE;
-			case ITM_OUTPUT:return ADD_READ;
+			case ITM_INPUT: return ADD_READ;
+			case ITM_OUTPUT:return ADD_WRITE;
 			case ITM_CONNECTOR:return ADD_CONNECTOR;
 			case ITM_PASTE:return PASTE;
 			case ITM_DELETE:return DEL;
