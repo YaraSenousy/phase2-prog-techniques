@@ -6,10 +6,10 @@ using namespace std;
 Start::Start(Point Lcorner)
 {
 
-	UpdateStatementText();
+	
 	LeftCorner = Lcorner;
 
-	pOutConn = NULL;
+	pOutConn = NULL;  //No connectors yet
 
 	Outlet.x = LeftCorner.x + UI.START_WDTH / 2;
 	Outlet.y = LeftCorner.y + UI.START_HI;
