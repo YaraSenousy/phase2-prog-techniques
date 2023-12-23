@@ -152,6 +152,10 @@
     <ClCompile Include="GUI\Output.cpp">
       <Filter>GUI Classes</Filter>
     </ClCompile>
+    <ClCompile Include="AddRead.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Read.cpp" />
     <ClCompile Include="AddVariableAssign.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
@@ -251,6 +255,10 @@
     <ClInclude Include="GUI\UI_Info.h">
       <Filter>GUI Classes</Filter>
     </ClInclude>
+    <ClInclude Include="AddRead.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Read.h" />
     <ClInclude Include="AddVariableAssign.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
