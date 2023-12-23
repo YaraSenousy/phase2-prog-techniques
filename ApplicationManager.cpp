@@ -1,5 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\AddValueAssign.h"
+#include "AddVariableAssign.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -64,6 +65,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		
 		case STATUS:
 			return;
+		case ADD_VAR_ASSIGN:
+			pAct = new AddVariableAssign(this);
 	}
 	
 	//Execute the created action
