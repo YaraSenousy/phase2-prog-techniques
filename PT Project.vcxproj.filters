@@ -53,6 +53,20 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="VariableAssign.cpp" />
     <ClCompile Include="AddConnector.cpp" />
+    <ClCompile Include="AddVariableAssign.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableAssign.cpp">
+      <Filter>Statements</Filter>
+    <ClCompile Include="ApplicationManager.cpp">
+      <Filter>CMUgraphicsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AddEnd.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="End.cpp">
+      <Filter>Statements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddStart.h" />
@@ -93,6 +107,18 @@
     <ClInclude Include="Statements\Statement.h" />
     <ClInclude Include="VariableAssign.h" />
     <ClInclude Include="AddConnector.h" />
+    <ClInclude Include="AddVariableAssign.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableAssign.h">
+      <Filter>Statements</Filter>
+    </ClInclude>
+    <ClInclude Include="AddEnd.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="End.h">
+      <Filter>Statements</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -125,9 +125,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddConnector.cpp" />
+    <ClCompile Include="AddEnd.cpp" />
     <ClCompile Include="AddStart.cpp" />
     <ClCompile Include="AddRead.cpp" />
     <ClCompile Include="AddVariableAssign.cpp" />
+    <ClCompile Include="AddWrite.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -275,6 +277,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="End.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
@@ -287,12 +290,15 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="VariableAssign.cpp" />
+    <ClCompile Include="Write.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddConnector.h" />
+    <ClInclude Include="AddEnd.h" />
     <ClInclude Include="AddStart.h" />
     <ClInclude Include="AddRead.h" />
     <ClInclude Include="AddVariableAssign.h" />
+    <ClInclude Include="AddWrite.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
@@ -318,6 +324,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="End.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
@@ -327,6 +334,7 @@
     <ClInclude Include="Statements\ValueAssign.h" />
     <ClInclude Include="Statements\Statement.h" />
     <ClInclude Include="VariableAssign.h" />
+    <ClInclude Include="Write.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
