@@ -1,5 +1,11 @@
 #include "ApplicationManager.h"
 #include "Actions\AddValueAssign.h"
+#include "AddStart.h"
+#include "AddRead.h"
+#include "AddVariableAssign.h"
+#include "AddWrite.h"
+#include "AddEnd.h"
+#include "AddConnector.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -64,6 +70,26 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		
 		case STATUS:
 			return;
+
+		case ADD_VAR_ASSIGN:
+			pAct = new AddVariableAssign(this);
+			break;
+
+		case ADD_READ:
+			pAct = new AddRead(this);
+			break;
+		case ADD_WRITE:
+			pAct = new AddWrite(this);
+			break;
+		case ADD_START:
+			pAct = new AddStart(this);
+			break;
+		case ADD_END:
+			pAct = new AddEnd(this);
+			break;
+		/*case ADD_CONNECTOR:
+			pAct = new AddConnector(this);
+			break;*/
 	}
 	
 	//Execute the created action
@@ -98,8 +124,36 @@ Statement *ApplicationManager::GetStatement(Point P) const
 
 	///Add your code here to search for a statement given a point P(x,y)	
 	///WITHOUT breaking class responsibilities
-
+	/*for (int i{}; i < StatCount; i++) {
+	* //check if the point is within the statement 
+		if (StatList[i]->InStatement(P)) {
+			return StatList[i];
+		}
+	}*/
 	return NULL;
+}
+
+//==================================================================================//
+//						Connectors Management Functions								//
+//==================================================================================//
+
+//add a connector to the list of connectors
+void ApplicationManager::AddConnector(Connector* pConn)
+{
+	if (ConnCount < MaxCount)
+		ConnList[ConnCount++] = pConn;
+}
+//check if the Point belongs to a connector
+Connector* ApplicationManager::GetConnector(Point P) const
+{
+	//loop on all connectors
+	for (int i{}; i++; i < ConnCount) {
+		//check if the point belong to a connector and return a pointer to it
+		if (ConnList[i]->IsConnector(P)) {
+			ConnList[i];
+		}
+	}
+	return nullptr;
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Returns the selected statement

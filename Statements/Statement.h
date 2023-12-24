@@ -26,7 +26,6 @@ public:
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
 	
-	
 
 	///TODO:The following functions should be supported by the Statement class
 	///		It should then be overridden by each derived Statement
@@ -43,7 +42,7 @@ public:
 
 
 	///TODO: Add more functions if needed
-
+	//virtual bool InStatement(Point p) = 0; //Check if a point is within the statement 
 };
 
 #endif
