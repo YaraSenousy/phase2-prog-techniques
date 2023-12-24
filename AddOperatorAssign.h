@@ -17,8 +17,10 @@ class AddOperatorAssign : public Action
 	Point pos; 
 	string LHS; // LHS (string since this is a variable)
 	string RHS1; // RHS1 (string since we are unsure whether user enters variable or value)
+	bool isValue1; //true if RHS1 is value else if variable
 	string RHSO; // RHSO (string since this is an operator)
 	string RHS2; // RHS2 (string since we are unsure whether user enters variable or value)
+	bool isValue2;  //true if RHS2 is value else if variable
 
 public:
 	AddOperatorAssign(ApplicationManager* pAppManager);

@@ -206,15 +206,16 @@ ActionType Input::GetUserAction() const
 
 }
 
-bool Input::AssignVarOrVal(Output* pOut, string& temp) const {
-	string input = GetString(pOut);
+bool Input::AssignVarOrVal(Output* pOut, string& input) const {
+	//takes string until it is variable or value
+	input = GetString(pOut);
 	OpType test = ValueOrVariable(input);
 	while (test == INVALID_OP) {
 		pOut->PrintMessage("Invalid! Re-enter variable name/ value: ");
 		input = GetString(pOut);
 		test = ValueOrVariable(input);
 	}
-	temp = input;
+	//return true if value 
 	if (test == VALUE_OP) {
 		return true;
 	}

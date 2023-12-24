@@ -3,12 +3,14 @@
 
 using namespace std;
 
-OperatorAssign::OperatorAssign(Point Lcorner, string LeftHs, string RightHs1, string RightHsO, string RightHs2) {
+OperatorAssign::OperatorAssign(Point Lcorner, string LeftHs, string RightHs1,bool value1, string RightHsO, string RightHs2,bool value2) {
 	
 	LHS = LeftHs;
 	RHS1 = RightHs1;
+	isValue1 = value1;
 	opp = RightHsO;
 	RHS2 = RightHs2;
+	isValue2 = value2;
 
 	UpdateStatementText();
 
