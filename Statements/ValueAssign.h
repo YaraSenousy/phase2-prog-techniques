@@ -36,7 +36,6 @@ public:
 	void setRHS(double R);
 
 	virtual void Draw(Output* pOut) const;
-
 };
 
 #endif

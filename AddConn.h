@@ -1,14 +1,14 @@
 #pragma once
 #include "Actions/Action.h"
 #include "Connector.h"
-class AddConnector : public Action
+class AddConn : public Action
 {
 private:
 	Statement* start_stat;
 	Statement* end_stat;
 
 public:
-	AddConnector(ApplicationManager* pAppManager);
+	AddConn(ApplicationManager* pAppManager);
 
 	//Read start and end statements connected by the connector 
 	virtual void ReadActionParameters();
