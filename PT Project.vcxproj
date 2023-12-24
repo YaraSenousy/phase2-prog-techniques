@@ -124,6 +124,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddOperatorAssign.cpp" />
     <ClCompile Include="AddConnector.cpp" />
     <ClCompile Include="AddEnd.cpp" />
     <ClCompile Include="AddStart.cpp" />
@@ -281,6 +282,7 @@
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
+    <ClCompile Include="OperatorAssign.cpp" />
     <ClCompile Include="Start.cpp" />
     <ClCompile Include="Read.cpp" />
     <ClCompile Include="Statements\ValueAssign.cpp" />
@@ -293,6 +295,7 @@
     <ClCompile Include="Write.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddOperatorAssign.h" />
     <ClInclude Include="AddConnector.h" />
     <ClInclude Include="AddEnd.h" />
     <ClInclude Include="AddStart.h" />
@@ -329,6 +332,7 @@
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="HelperFn.h" />
+    <ClInclude Include="OperatorAssign.h" />
     <ClInclude Include="Start.h" />
     <ClInclude Include="Read.h" />
     <ClInclude Include="Statements\ValueAssign.h" />
