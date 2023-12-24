@@ -19,7 +19,7 @@ private:
 public:
 	Start(Point Lcorner);
 	virtual void Draw(Output* pOut) const;
-
+	virtual bool InStatement(Point p);
 
 
 };

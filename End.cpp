@@ -22,6 +22,14 @@ void End::Draw(Output* pOut) const
 	pOut->DrawEnd(LeftCorner, UI.START_WDTH, UI.START_HI, Selected);
 }
 
+bool End::InStatement(Point p)
+{
+	if (p.x >= LeftCorner.x && p.x <= LeftCorner.x + UI.START_WDTH && p.y >= LeftCorner.y && p.y <= LeftCorner.y + UI.START_HI) {
+		return true;
+	}
+	return false;
+}
+
 void End::UpdateStatementText()
 {}
 

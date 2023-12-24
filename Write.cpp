@@ -30,6 +30,14 @@ void Write::Draw(Output* pOut) const
 	pOut->DrawWrite(Leftcorner, UI.IO_WDTH, UI.IO_HI, Text, Selected);
 }
 
+bool Write::InStatement(Point p)
+{
+	if (p.x >= Leftcorner.x && p.x <= Leftcorner.x + UI.IO_WDTH && p.y >= Leftcorner.y && p.y <= Leftcorner.y + UI.IO_HI) {
+		return true;
+	}
+	return false;
+}
+
 void Write::UpdateStatementText() {
 	ostringstream T;
 	T << VarOrString;
