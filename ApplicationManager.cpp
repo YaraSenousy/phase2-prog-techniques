@@ -6,6 +6,7 @@
 #include "AddWrite.h"
 #include "AddEnd.h"
 #include "AddConnector.h"
+#include "AddOperatorAssign.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -86,6 +87,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_END:
 			pAct = new AddEnd(this);
+			break;
+		case ADD_OPER_ASSIGN:
+			pAct = new AddOperatorAssign(this);
 			break;
 		/*case ADD_CONNECTOR:
 			pAct = new AddConnector(this);
