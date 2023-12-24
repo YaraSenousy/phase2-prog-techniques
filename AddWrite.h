@@ -7,7 +7,7 @@ class AddWrite : public Action
 {
 private:
 	Point Position;
-	string VarName;
+	string VarOrString;
 
 public:
 	AddWrite(ApplicationManager* pAppManager);
