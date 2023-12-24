@@ -144,12 +144,12 @@ Statement *ApplicationManager::GetStatement(Point P) const
 
 	///Add your code here to search for a statement given a point P(x,y)	
 	///WITHOUT breaking class responsibilities
-	/*for (int i{}; i < StatCount; i++) {
-	* //check if the point is within the statement 
+	for (int i{}; i < StatCount; i++) {
+	//check if the point is within the statement 
 		if (StatList[i]->InStatement(P)) {
 			return StatList[i];
 		}
-	}*/
+	}
 	return NULL;
 }
 
