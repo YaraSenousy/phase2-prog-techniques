@@ -124,6 +124,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddConnector.cpp" />
     <ClCompile Include="AddStart.cpp" />
     <ClCompile Include="AddRead.cpp" />
     <ClCompile Include="AddVariableAssign.cpp" />
@@ -288,6 +289,7 @@
     <ClCompile Include="VariableAssign.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddConnector.h" />
     <ClInclude Include="AddStart.h" />
     <ClInclude Include="AddRead.h" />
     <ClInclude Include="AddVariableAssign.h" />
