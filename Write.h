@@ -4,7 +4,7 @@
 class Write : public Statement
 {
 private:
-	string VarName; //Variable name
+	string VarOrString; //Variable or sentence to be displayed name
 	Connector* pOutConn; //Connector
 	Point Inlet; //Point where last connector ended
 	Point Outlet; //Start of next connector

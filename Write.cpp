@@ -5,7 +5,7 @@
 Write::Write(Point Lcorner, string varName)
 {
 	//set variabla name
-	VarName = varName;
+	VarOrString = varName;
 	UpdateStatementText();
 
 	Leftcorner = Lcorner;
@@ -20,7 +20,7 @@ Write::Write(Point Lcorner, string varName)
 
 void Write::setVarName(const string& var)
 {
-	VarName = var;
+	VarOrString = var;
 	UpdateStatementText();
 }
 
@@ -32,6 +32,6 @@ void Write::Draw(Output* pOut) const
 
 void Write::UpdateStatementText() {
 	ostringstream T;
-	T << VarName;
+	T << VarOrString;
 	Text = T.str();
 }
