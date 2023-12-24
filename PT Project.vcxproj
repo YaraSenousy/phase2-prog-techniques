@@ -126,7 +126,7 @@
   <ItemGroup>
     <ClCompile Include="AddCondition.cpp" />
     <ClCompile Include="AddOperatorAssign.cpp" />
-    <ClCompile Include="AddConnector.cpp" />
+    <ClCompile Include="AddConn.cpp" />
     <ClCompile Include="AddEnd.cpp" />
     <ClCompile Include="AddStart.cpp" />
     <ClCompile Include="AddRead.cpp" />
@@ -279,7 +279,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="Connector.cpp" />
-    <ClCompile Include="DeleteAction.cpp" />
+    <ClCompile Include="DelAction.cpp" />
     <ClCompile Include="End.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
@@ -299,7 +299,7 @@
   <ItemGroup>
     <ClInclude Include="AddCondition.h" />
     <ClInclude Include="AddOperatorAssign.h" />
-    <ClInclude Include="AddConnector.h" />
+    <ClInclude Include="AddConn.h" />
     <ClInclude Include="AddEnd.h" />
     <ClInclude Include="AddStart.h" />
     <ClInclude Include="AddRead.h" />
@@ -330,7 +330,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
-    <ClInclude Include="DeleteAction.h" />
+    <ClInclude Include="DelAction.h" />
     <ClInclude Include="End.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />

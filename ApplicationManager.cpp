@@ -5,11 +5,11 @@
 #include "AddVariableAssign.h"
 #include "AddWrite.h"
 #include "AddEnd.h"
-#include "AddConnector.h"
+#include "AddConn.h"
 #include "AddOperatorAssign.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
-#include "de"
+#include "DelAction.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -52,7 +52,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	switch (ActType)
 	{
 		case DEL:
-			pAct = new DeleteAction(this);
+			pAct = new DelAction(this);
 			break;
 		case ADD_VALUE_ASSIGN:
 			pAct = new AddValueAssign(this);
@@ -95,9 +95,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_OPER_ASSIGN:
 			pAct = new AddOperatorAssign(this);
 			break;
-		/*case ADD_CONNECTOR:
-			pAct = new AddConnector(this);
-			break;*/
+		case ADD_CONNECTOR:
+			pAct = new AddConn(this);
+			break;
 	}
 	
 	//Execute the created action
