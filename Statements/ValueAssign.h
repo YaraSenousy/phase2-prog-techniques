@@ -36,7 +36,7 @@ public:
 	void setRHS(double R);
 
 	virtual void Draw(Output* pOut) const;
-
+	void Delete(Point Lcorner,Point InCon,Point OutCon);
 };
 
 #endif

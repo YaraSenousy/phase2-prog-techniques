@@ -43,6 +43,14 @@ void ValueAssign::Draw(Output* pOut) const
 	
 }
 
+void ValueAssign::Delete(Point Lcorner, Point InCon, Point OutCon)
+{
+
+	if (pOutConn != NULL) {
+	
+	}
+}
+
 
 //This function should be called when LHS or RHS changes
 void ValueAssign::UpdateStatementText()

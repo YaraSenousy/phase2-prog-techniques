@@ -9,6 +9,7 @@
 #include "AddOperatorAssign.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
+#include "de"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -50,6 +51,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	//According to ActioType, create the corresponding action object
 	switch (ActType)
 	{
+		case DEL:
+			pAct = new DeleteAction(this);
+			break;
 		case ADD_VALUE_ASSIGN:
 			pAct = new AddValueAssign(this);
 			break;
@@ -101,6 +105,18 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	{
 		pAct->Execute();//Execute
 		delete pAct;	//Action is not needed any more ==> delete it
+	}
+}
+
+void ApplicationManager::DeleteAction(Statement*statd)
+{
+	for (int i = 0; i < StatCount; i++) {
+		if (StatList[i] == statd) {
+			delete StatList[i];
+			StatList[i] = StatList[StatCount - 1];
+			StatList[StatCount - 1] = NULL;
+			StatCount--;
+		}
 	}
 }
 
