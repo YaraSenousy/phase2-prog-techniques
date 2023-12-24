@@ -36,7 +36,7 @@ public:
 	void setRHS(double R);
 
 	virtual void Draw(Output* pOut) const;
-
+	virtual bool InStatement(Point p);
 };
 
 #endif

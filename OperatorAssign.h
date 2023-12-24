@@ -29,6 +29,7 @@ public:
 	void setRHS2(const string& R2);
 	
 	void Draw(Output* pOut) const;
+	virtual bool InStatement(Point p);
 };	
 
 

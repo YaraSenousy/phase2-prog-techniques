@@ -46,3 +46,11 @@ void VariableAssign::Draw(Output* pOut) const {
 	//Calls Output::DrawAssign function to draw assignment statement
 	pOut->DrawAssign(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
 }
+
+bool VariableAssign::InStatement(Point p)
+{
+	if (p.x >= LeftCorner.x && p.x <= LeftCorner.x + UI.ASSGN_WDTH && p.y >= LeftCorner.y && p.y <= LeftCorner.y + UI.ASSGN_HI) {
+		return true;
+}
+	return false;
+}
