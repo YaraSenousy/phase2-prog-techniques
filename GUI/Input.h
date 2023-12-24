@@ -34,6 +34,8 @@ public:
 	string Input::GetCompOperator(Output* pO) const;
 	//TODO: Complete the implementation of the following function
 	ActionType GetUserAction() const; //Reads the user click and maps it to an action
+	////Function that decides whether it is a value or a variable and assigns respectively
+	bool AssignVarOrVal(Output* pOut, string& temp) const;
 
 	~Input();
 };
