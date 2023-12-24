@@ -46,7 +46,6 @@ void AddWrite::Execute()
 	ReadActionParameters();
 
 	Point Corner;
-	//Calculates top left corner to start drawing
 	Corner.x = Position.x - UI.IO_WDTH / 2;
 	Corner.y = Position.y;
 	Write* pWrite = new Write(Corner, VarOrString); //Setting the variable name for pWrite
