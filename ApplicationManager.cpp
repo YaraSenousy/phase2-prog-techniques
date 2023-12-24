@@ -3,6 +3,9 @@
 #include "AddStart.h"
 #include "AddRead.h"
 #include "AddVariableAssign.h"
+#include "AddWrite.h"
+#include "AddEnd.h"
+#include "AddConnector.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -75,9 +78,18 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_READ:
 			pAct = new AddRead(this);
 			break;
-
+		case ADD_WRITE:
+			pAct = new AddWrite(this);
+			break;
 		case ADD_START:
 			pAct = new AddStart(this);
+			break;
+		case ADD_END:
+			pAct = new AddEnd(this);
+			break;
+		/*case ADD_CONNECTOR:
+			pAct = new AddConnector(this);
+			break;*/
 	}
 	
 	//Execute the created action

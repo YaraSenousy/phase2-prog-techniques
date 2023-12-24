@@ -37,7 +37,7 @@ void AddWrite::Execute()
 	//Calculates top left corner to start drawing
 	Corner.x = Position.x - UI.IO_WDTH / 2;
 	Corner.y = Position.y;
-	Read* pWrite = new Read(Corner, VarName); //Setting the variable name for pRead
+	Write* pWrite = new Write(Corner, VarName); //Setting the variable name for pWrite
 	pManager->AddStatement(pWrite); //Adds created statement to manager's list
 
 
