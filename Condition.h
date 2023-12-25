@@ -9,11 +9,11 @@ private:
 	string RHS; //right hand side variable/value
 	bool IsValue; //true if rhs is value, false if variable
 
-	Connector* pOutConnTrue; //first connector in case condition is true
-	Connector* pOutConnFalse; //second connector in case condition false
+	Connector* pOutConnYes; //first connector in case condition is true
+	Connector* pOutConnNo; //second connector in case condition false
 	Point Inlet; //only one inlet
-	Point OutletTrue; //outlet in case condition is true
-	Point OutletFalse; //Outlet in case condition is false
+	Point OutletYes; //outlet in case condition is true
+	Point OutletNo; //Outlet in case condition is false
 	Point Corner; //corner of the block
 
 	void UpdateStatementText();

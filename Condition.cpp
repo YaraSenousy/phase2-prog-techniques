@@ -9,18 +9,18 @@ Condition::Condition(Point corner,string left,string compop, string right, bool 
 	UpdateStatementText();
 	Corner = corner;
 
-	pOutConnTrue = NULL; //no connector yet
-	pOutConnFalse = NULL; //no connector yet
+	pOutConnYes = NULL; //no connector yet
+	pOutConnNo = NULL; //no connector yet
 
 	//need to change after connector draw is added
 	Inlet.x = Corner.x + UI.ASSGN_WDTH / 2; 
 	Inlet.y = Corner.y;
 
-	OutletTrue.x = Corner.x;
-	OutletTrue.y = Corner.y + UI.ASSGN_HI;
+	OutletYes.x = Corner.x;
+	OutletYes.y = Corner.y + UI.ASSGN_HI;
 
-	OutletFalse.x = Corner.x - UI.ASSGN_WDTH / 2;
-	OutletFalse.y = Corner.y + UI.ASSGN_HI;
+	OutletNo.x = Corner.x - UI.ASSGN_WDTH / 2;
+	OutletNo.y = Corner.y + UI.ASSGN_HI;
 }
 
 void Condition::UpdateStatementText()
