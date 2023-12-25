@@ -1,6 +1,7 @@
 #include "Read.h"
 #include "GUI/UI_Info.h"
 #include <sstream>
+#include <fstream>
 
 Read::Read(Point Lcorner, string varName)
 {
@@ -35,6 +36,10 @@ bool Read::InStatement(Point p)
 		return true;
 }
 	return false;
+}
+void Read::Save(ofstream& OutFile)
+{
+	OutFile << "READ" << " " << ID << Leftcorner.x << " " << Leftcorner.y << " " << VarName << endl;
 }
 void Read::UpdateStatementText() {
 	ostringstream T;

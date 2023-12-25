@@ -57,5 +57,5 @@ bool Connector::IsConnector(Point p)
 
 void Connector::Save(ofstream& OutFile)
 {
-	OutFile << SrcStat->GetID() << " " << DstStat->GetID() << " " << Outlet_branch;
+	OutFile << SrcStat->GetID() << " " << DstStat->GetID() << " " << Outlet_branch << endl;
 }

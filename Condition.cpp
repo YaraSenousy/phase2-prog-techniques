@@ -1,5 +1,7 @@
 #include "Condition.h"
 #include <sstream>
+#include <fstream>
+
 
 Condition::Condition(Point corner,string left,string compop, string right, bool isval)
 {
@@ -65,6 +67,6 @@ bool Condition::InStatement(Point p)
 
 void Condition::Save(ofstream& OutFile)
 {
-	OutFile<<"COND"<<" "<<ID<<" "<<L
+	OutFile << "COND" << " " << ID << " " << LHS << " " << CompOp << " " << RHS << endl;
 }
 

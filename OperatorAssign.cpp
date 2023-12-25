@@ -1,5 +1,6 @@
 #include "OperatorAssign.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -65,4 +66,9 @@ bool OperatorAssign::InStatement(Point p)
 		return true;
 }
 	return false;
+}
+
+void OperatorAssign::Save(ofstream& OutFile)
+{
+	OutFile << "OP_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS1 << " " << opp << " " << RHS2 << endl;
 }

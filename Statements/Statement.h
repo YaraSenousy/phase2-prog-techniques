@@ -44,8 +44,8 @@ public:
 	virtual bool InStatement(Point p) = 0; //Check if a point is within the statement 
 	int GetID();
 
-	virtual Point getInlet() {};
-	virtual Point getOutlet() {};
+	//virtual Point getInlet() {};
+	//virtual Point getOutlet() {};
 };
 
 #endif
