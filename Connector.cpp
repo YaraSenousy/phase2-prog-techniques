@@ -1,5 +1,5 @@
 #include "Connector.h"
-
+#include "statements/Statement.h"
 Connector::Connector(Statement* Src, Statement* Dst)	
 //When a connector is created, it must have a source statement and a destination statement
 //There are NO FREE connectors in the flowchart
@@ -7,6 +7,7 @@ Connector::Connector(Statement* Src, Statement* Dst)
 	
 	SrcStat = Src;
 	DstStat = Dst;
+	Outlet_branch = 0;
 }
 
 void Connector::setSrcStat(Statement *Src)
@@ -37,11 +38,14 @@ Point Connector::getEndPoint()
 void Connector::Draw(Output* pOut) const
 {
 	///TODO: Call Output to draw a connector from SrcStat to DstStat on the output window
+	//setStartPoint(SrcStat->getOutlet()); 
+	//setEndPoint(DstStat->getInlet());
 	pOut->DrawConnector(Start, End, Selected);
 }
 
 bool Connector::IsConnector(Point p)
 {
+	//check if the p is within the lines of the connector
 	if ((p.y == Start.y) && (p.x > Start.x) && (p.x < End.x)) {
 		return true;
 	}
@@ -51,3 +55,7 @@ bool Connector::IsConnector(Point p)
 		return false;
 }
 
+void Connector::Save(ofstream& OutFile)
+{
+	OutFile << SrcStat->GetID() << " " << DstStat->GetID() << " " << Outlet_branch << endl;
+}

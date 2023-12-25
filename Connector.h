@@ -3,6 +3,7 @@
 
 #include "GUI\UI_Info.h"
 #include "GUI\output.h"
+#include <fstream>
 class Statement;
 
 class Connector	//a connector that connects two statements (Source & Destination)
@@ -12,6 +13,7 @@ private:
 	Statement *DstStat;	//The destination statement of the connector
 	Point Start;	//Start point of the connector
 	Point End;		//End point of the connector
+	int Outlet_branch; //for conditonal statements 1:YES 2:No 3:otherwisw
 
 	bool Selected; // true if the connector is selected 
 public:
@@ -30,7 +32,7 @@ public:
 
 	void Draw(Output* pOut) const;
 	bool IsConnector(Point p);
-
+	void Save(ofstream& OutFile);
 };
 
 #endif

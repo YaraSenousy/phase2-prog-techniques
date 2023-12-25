@@ -1,5 +1,6 @@
 #include "Start.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -27,6 +28,11 @@ bool Start::InStatement(Point p)
 		return true;
 }
 	return false;
+}
+
+void Start::Save(ofstream& OutFile)
+{
+	OutFile << "STRT" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
 }
 
 void Start::UpdateStatementText()

@@ -1,6 +1,7 @@
 #include "End.h"
 
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -11,9 +12,6 @@ End::End(Point Lcorner)
 
 	Inlet.x = LeftCorner.x + UI.START_WDTH / 2;
 	Inlet.y = LeftCorner.y;
-
-
-
 }
 
 void End::Draw(Output* pOut) const
@@ -28,6 +26,11 @@ bool End::InStatement(Point p)
 		return true;
 	}
 	return false;
+}
+
+void End::Save(ofstream& OutFile)
+{
+	OutFile << "END" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
 }
 
 void End::UpdateStatementText()

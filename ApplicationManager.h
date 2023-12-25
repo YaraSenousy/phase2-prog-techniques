@@ -37,7 +37,7 @@ public:
 	                                  //and returns the corresponding action type
 	void ExecuteAction(ActionType) ;  //Creates an action and executes it
 	void DeleteAction(Statement *statd); //Deletes a statement
-	
+	void SaveAll(ofstream& OutFile); //call Save function for each statement and connector
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart
 	Statement *GetStatement(Point P) const;	//Searches for a statement where point P belongs

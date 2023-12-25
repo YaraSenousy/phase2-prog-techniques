@@ -27,6 +27,8 @@ public:
 
 	void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
+	virtual void Save(ofstream& OutFile);
+
 };
 #endif
 
