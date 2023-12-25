@@ -295,6 +295,8 @@ void Output::DrawCondition(Point left, int width, int height, string Text, bool 
 	pWind->SetPen(BLACK, 2);
 	pWind->DrawString(left.x +width/2, left.y - 0.75*height,"If ");
 	pWind->DrawString(left.x+20, left.y -height/3, Text);
+	pWind->DrawString(left.x + width*1.05, left.y*0.92, " True");
+	pWind->DrawString(left.x*0.85, left.y*0.92, "  False");
 }
 
 

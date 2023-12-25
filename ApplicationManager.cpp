@@ -10,6 +10,7 @@
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 #include "DelAction.h"
+#include "AddCond.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -60,7 +61,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case ADD_CONDITION:
 			///create AddCondition Action here
-
+			pAct = new AddCond(this);
 			break;
 
 		case SELECT:

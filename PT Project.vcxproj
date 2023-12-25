@@ -124,7 +124,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AddCondition.cpp" />
+    <ClCompile Include="AddCond.cpp" />
     <ClCompile Include="AddOperatorAssign.cpp" />
     <ClCompile Include="AddConn.cpp" />
     <ClCompile Include="AddEnd.cpp" />
@@ -278,6 +278,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="Condition.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="DelAction.cpp" />
     <ClCompile Include="End.cpp" />
@@ -297,7 +298,7 @@
     <ClCompile Include="Write.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AddCondition.h" />
+    <ClInclude Include="AddCond.h" />
     <ClInclude Include="AddOperatorAssign.h" />
     <ClInclude Include="AddConn.h" />
     <ClInclude Include="AddEnd.h" />
@@ -328,6 +329,7 @@
     <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\AddValueAssign.h" />
     <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="Condition.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DelAction.h" />
