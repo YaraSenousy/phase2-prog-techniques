@@ -16,8 +16,13 @@ void SaveAction::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 	Output* pOut = pManager->GetOutput();
 
-	pOut->PrintMessage("enter a valid filename");
+	pOut->PrintMessage("enter filename");
 	filename = pIn->GetString(pOut);
+	//adding .txt to the filename
+	ostringstream T;
+	T << filename << ".txt";
+	filename = T.str();
+
 	pOut->ClearStatusBar();
 }
 
