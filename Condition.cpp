@@ -63,3 +63,8 @@ bool Condition::InStatement(Point p)
 	return false;
 }
 
+void Condition::Save(ofstream& OutFile)
+{
+	OutFile<<"COND"<<" "<<ID<<" "<<L
+}
+

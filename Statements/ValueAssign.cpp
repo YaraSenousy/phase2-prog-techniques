@@ -51,6 +51,21 @@ bool ValueAssign::InStatement(Point p)
 	return false;
 }
 
+void ValueAssign::Save(ofstream& OutFile)
+{
+	OutFile << "VALUE_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+}
+
+Point ValueAssign::getInlet()
+{
+	return Inlet;
+}
+
+Point ValueAssign::getOutlet()
+{
+	return Outlet;
+}
+
 
 //This function should be called when LHS or RHS changes
 void ValueAssign::UpdateStatementText()
