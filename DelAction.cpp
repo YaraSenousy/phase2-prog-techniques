@@ -27,7 +27,9 @@ void DelAction::ReadActionParameters()
 void DelAction::Execute()
 {
 	ReadActionParameters();
+
 	if (stat != NULL) {
+		stat->
 		pManager->DeleteAction(stat);
 	}
 }

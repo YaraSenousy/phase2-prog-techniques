@@ -15,14 +15,14 @@ Condition::Condition(Point corner,string left,string compop, string right, bool 
 	pOutConnNo = NULL; //no connector yet
 
 	//need to change after connector draw is added
-	Inlet.x = Corner.x + UI.ASSGN_WDTH / 2; 
-	Inlet.y = Corner.y;
+	Inlet.x = Corner.x + UI.COND_WIDTH /2; 
+	Inlet.y = Corner.y - UI.COND_HI/2;
 
-	OutletYes.x = Corner.x;
-	OutletYes.y = Corner.y + UI.ASSGN_HI;
+	OutletYes.x = Corner.x + UI.COND_WIDTH;
+	OutletYes.y = Corner.y;
 
-	OutletNo.x = Corner.x - UI.ASSGN_WDTH / 2;
-	OutletNo.y = Corner.y + UI.ASSGN_HI;
+	OutletNo.x = Corner.x;
+	OutletNo.y = Corner.y;
 }
 
 void Condition::UpdateStatementText()
@@ -59,7 +59,7 @@ void Condition::Draw(Output* pOut) const
 
 bool Condition::InStatement(Point p)
 {
-	if (p.x >= Corner.x && p.x <= Corner.x + UI.ASSGN_WDTH && p.y >= Corner.y && p.y <= Corner.y + UI.ASSGN_HI) {
+	if (p.x >= Corner.x && p.x <= Corner.x + UI.COND_WIDTH && p.y >= Corner.y - UI.COND_HI/2 && p.y <= Corner.y + UI.COND_HI/2) {
 		return true;
 	}
 	return false;

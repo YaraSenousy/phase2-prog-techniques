@@ -26,6 +26,8 @@ Output::Output()
 	UI.START_HI = 50;
 	UI.IO_WDTH = 120;
 	UI.IO_HI = 50;
+	UI.COND_WIDTH = 150;
+	UI.COND_HI = 100;
 	
 
 	//Create the output window
