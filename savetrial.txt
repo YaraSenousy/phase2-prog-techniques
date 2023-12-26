@@ -1,0 +1,4 @@
+2
+VAR_ASSIGN 1 144 380 fghj hj
+VALUE_ASSIGN 2 138 211 ghdfg 8
+0

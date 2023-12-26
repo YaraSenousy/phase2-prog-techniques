@@ -2,6 +2,7 @@
 #include "ApplicationManager.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
+#include "Condition.h"
 
 #include <sstream>
 using namespace std;
@@ -29,7 +30,11 @@ void DelAction::Execute()
 	ReadActionParameters();
 
 	if (stat != NULL) {
-		
+
+		if (dynamic_cast<Condition*>(stat))
+			pManager->DeleteConn(stat->getOutlet_yesOrno(1), stat->getOutlet_yesOrno(2), stat->getInlet());
+		else
+			pManager->DeleteConn(stat->getOutlet(), NULL, stat->getInlet());
 		pManager->DeleteAction(stat);
 	}
 }

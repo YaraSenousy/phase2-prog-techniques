@@ -7,7 +7,7 @@ Statement::Statement()
 	count++;
 	ID = count;
 	Text = "";
-	Selected = false;		
+	Selected = false;	
 }
 
 void Statement::SetSelected(bool s)
