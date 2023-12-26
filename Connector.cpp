@@ -1,6 +1,6 @@
 #include "Connector.h"
 #include "statements/Statement.h"
-Connector::Connector(Statement* Src, Statement* Dst)	
+Connector::Connector(Statement* Src, Statement* Dst,int branchtype)	
 //When a connector is created, it must have a source statement and a destination statement
 //There are NO FREE connectors in the flowchart
 {
@@ -9,7 +9,7 @@ Connector::Connector(Statement* Src, Statement* Dst)
 	DstStat = Dst;
 
 	Selected = false; //not higlighted by default
-	Outlet_branch = 0;
+	Outlet_branch = branchtype; //1 if yes branch, 2 if No otherwise 0
 
 }
 

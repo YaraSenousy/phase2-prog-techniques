@@ -66,18 +66,17 @@ bool Condition::InStatement(Point p)
 }
 
 
-/*Point Condition::getOutlet(int branchtype)
+void Condition::Save(ofstream& OutFile)
+{
+	OutFile << "COND" << " " << ID << " " << LHS << " " << CompOp << " " << RHS << endl;
+}
+
+Point Condition::getOutlet_yesOrno(int branchtype)
 {
 	if (branchtype == 1) {
 		return OutletYes;
 	}
 	else
 		return OutletNo;
-}*/
-
-
-void Condition::Save(ofstream& OutFile)
-{
-	OutFile << "COND" << " " << ID << " " << LHS << " " << CompOp << " " << RHS << endl;
 }
 

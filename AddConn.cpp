@@ -14,7 +14,7 @@ AddConn::AddConn(ApplicationManager* pAppManager) : Action(pAppManager)
 	start_stat = NULL;
 	end_stat = NULL;
 
-	//Outlet_branch = 0; //by defualt the branch isnt yes or no branch
+	Outlet_branch = 0; //by defualt the branch isnt yes or no branch
 }
 
 void AddConn::ReadActionParameters()
@@ -57,10 +57,17 @@ void AddConn::Execute()
 {
 	ReadActionParameters();
 	//creating new connector
-	if ((start_stat != nullptr) && (end_stat != nullptr)) {
-		Connector* pConn = new Connector(start_stat, end_stat);
+	if (start_stat && end_stat) {
+		Connector* pConn = new Connector(start_stat, end_stat,Outlet_branch);
 		//setting the start and end point
-		pConn->setStartPoint(start_stat->getOutlet());
+		if (Outlet_branch != 0) {  //yes or no branch
+			//casting the statement to condition
+			Condition* cond = dynamic_cast<Condition*>(start_stat);
+			//setting the start point to draw the connector to Yes or No point
+			pConn->setStartPoint(cond->getOutlet_yesOrno(Outlet_branch));
+		}
+		else
+			pConn->setStartPoint(start_stat->getOutlet());
 		
 
 		pConn->setEndPoint(end_stat->getInlet());
