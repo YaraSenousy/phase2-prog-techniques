@@ -38,7 +38,7 @@ void AddCond::Execute()
 	ReadActionParameters();
 
 	Point Corner;
-	Corner.x = position.x + UI.ASSGN_WDTH/2;
+	Corner.x = position.x;
 	Corner.y = position.y;
 
 	Condition* pCondition= new Condition(Corner, LHS,CompOp, RHS, IsValue);

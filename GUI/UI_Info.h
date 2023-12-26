@@ -34,6 +34,9 @@ struct UI_Info	//User Interface Info.
 
 	int IO_WDTH;  //Read & write (input/output) statement defult width 
 	int IO_HI;    //Read & write (input/output) statement defult height 
+
+	int COND_WIDTH; //Condition default width
+	int COND_HI; //Condition default height
 	
 }UI;	//create a single global object UI
 

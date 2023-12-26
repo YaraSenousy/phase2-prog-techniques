@@ -125,6 +125,35 @@ void ApplicationManager::DeleteAction(Statement*statd)
 	}
 }
 
+void ApplicationManager::DeleteConn(Connector * pOutConn1,Connector *pOutConn2,Point P)
+{
+	for (int i = 0; i < ConnCount; i++) {
+		if (ConnList[i] == pOutConn1) {
+			delete ConnList[i];
+			ConnList[i] = ConnList[ConnCount - 1];
+			ConnList[ConnCount - 1] = NULL;
+			ConnCount--;
+		}
+		else if (pOutConn2 != NULL) {
+			if (ConnList[i] == pOutConn2) {
+			delete ConnList[i];
+			ConnList[i] = ConnList[ConnCount - 1];
+			ConnList[ConnCount - 1] = NULL;
+			ConnCount--;
+		}
+		}
+	}
+	for (int i = 0; i < ConnCount; i++) {
+		if (ConnList[i]->getEndPoint().x == P.x && ConnList[i]->getEndPoint().y == P.y) {
+			delete ConnList[i];
+			ConnList[i] = ConnList[ConnCount - 1];
+			ConnList[ConnCount - 1] = NULL;
+			ConnCount--;
+		}
+	}
+}
+
+
 void ApplicationManager::SaveAll(ofstream& OutFile)
 {
 	//adding the number of statements to the file
