@@ -18,8 +18,8 @@ void AddWrite::ReadActionParameters()
 
 	//Write the (Position) parameter
 	pOut->PrintMessage("Write Statement: Click to add the statement ");
-
-	pIn->GetPointClicked(Position);
+	//get valid point from user
+	Position = PointInDrawing(pIn, pOut);
 	pOut->ClearStatusBar();
 	//Ask user to enter variable name
 	pOut->PrintMessage("Enter a variable name or string between quotations to be displayed: ");
@@ -48,6 +48,6 @@ void AddWrite::Execute()
 	Point Corner;
 	Corner.x = Position.x - UI.IO_WDTH / 2;
 	Corner.y = Position.y;
-	Write* pWrite = new Write(Corner, VarOrString); //Setting the variable name for pWrite
+	Write* pWrite = new Write(Position, VarOrString); //Setting the variable name for pWrite
 	pManager->AddStatement(pWrite); //Adds created statement to manager's list
 }

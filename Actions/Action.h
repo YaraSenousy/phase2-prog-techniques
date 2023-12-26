@@ -27,6 +27,8 @@ public:
 	
 	//Execute action (code depends on action type)
 	virtual void Execute() =0;
+	//make sure the user clicks in the drawing area 
+	Point PointInDrawing(Input* pIn,Output* pOut);
 };
 
 #endif

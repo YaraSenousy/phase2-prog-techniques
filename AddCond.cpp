@@ -16,7 +16,8 @@ void AddCond::ReadActionParameters()
 	//Read position parameter
 	pOut->PrintMessage("Condition statement: click to add the statement");
 
-	pIn->GetPointClicked(position);
+	//get valid point from user
+	position = PointInDrawing(pIn, pOut);
 	pOut->ClearStatusBar();
 
 	//Ask user to enter LHS variable to compare, validate and set

@@ -19,7 +19,8 @@ void AddRead::ReadActionParameters()
 	//Read the (Position) parameter
 	pOut->PrintMessage("Read Statement: Click to add the statement ");
 
-	pIn->GetPointClicked(Position);
+	//get valid point from user
+	Position = PointInDrawing(pIn, pOut);
 	pOut->ClearStatusBar();
 	//Ask user to enter variable name
 	pOut->PrintMessage("Enter a variable name to be read: ");

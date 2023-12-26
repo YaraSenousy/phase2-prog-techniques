@@ -20,7 +20,8 @@ void AddVariableAssign::ReadActionParameters() {
 
 	//Read position parameter
 	pOut->PrintMessage("Variable Assignmenet Statemet: Click to add the statement: ");
-	pIn->GetPointClicked(p);
+	//get valid point from user
+	p = PointInDrawing(pIn, pOut);
 	pOut->ClearStatusBar();
 
 	//Asks user in status bar to enter LHS and set the data member
