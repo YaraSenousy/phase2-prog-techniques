@@ -21,7 +21,8 @@ void  AddStart::ReadActionParameters()
 	//Read the (Position) parameter
 	pOut->PrintMessage("Start Statement: Click to add the statement");
 
-	pIn->GetPointClicked(Position);
+	//get valid point from user
+	Position = PointInDrawing(pIn, pOut);
 	pOut->ClearStatusBar();
 
  }

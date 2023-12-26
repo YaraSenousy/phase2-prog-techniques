@@ -20,7 +20,8 @@ void AddOperatorAssign::ReadActionParameters() {
 	//Read the "pos" (position) parameter
 	pOut->PrintMessage("Operator Assignment Statement: Click to add the statement ");
 
-	pIn->GetPointClicked(pos);
+	//get valid point from user
+	pos = PointInDrawing(pIn, pOut);
 	pOut->ClearStatusBar();
 
 	//Ask user in status bar to enter the LHS and set the data member
