@@ -7,6 +7,8 @@ private:
 	Statement* start_stat;
 	Statement* end_stat;
 
+	int Outlet_branch;
+
 public:
 	AddConn(ApplicationManager* pAppManager);
 

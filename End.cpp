@@ -9,7 +9,7 @@ End::End(Point Lcorner)
 {
 
 	LeftCorner = Lcorner;
-
+	Outlet.x = -1; //make sure end isnt source statement 
 	Inlet.x = LeftCorner.x + UI.START_WDTH / 2;
 	Inlet.y = LeftCorner.y;
 }

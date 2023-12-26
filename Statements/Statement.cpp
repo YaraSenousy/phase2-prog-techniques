@@ -16,7 +16,19 @@ void Statement::SetSelected(bool s)
 bool Statement::IsSelected() const
 {	return Selected; }
 
+
+Point Statement::getInlet()
+{
+	return Inlet;
+}
+
+Point Statement::getOutlet()
+{
+	return Outlet;
+}
+
 int Statement::GetID()
 {
 	return ID;
 }
+

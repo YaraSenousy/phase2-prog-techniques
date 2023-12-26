@@ -7,8 +7,6 @@ class Read : public Statement
 private:
 	string VarName; //Variable name 
 	Connector* pOutConn; //Read has one connector
-	Point Inlet; //Point where last connector ended
-	Point Outlet; //Start of next connector
 	Point Leftcorner; //Left corner of the read block
 	void UpdateStatementText();
 

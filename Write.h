@@ -6,8 +6,6 @@ class Write : public Statement
 private:
 	string VarOrString; //Variable or sentence to be displayed name
 	Connector* pOutConn; //Connector
-	Point Inlet; //Point where last connector ended
-	Point Outlet; //Start of next connector
 	Point Leftcorner; //Left corner of the read block
 	void UpdateStatementText();
 
