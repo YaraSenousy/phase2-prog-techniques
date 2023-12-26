@@ -4,6 +4,8 @@
 #include "GUI/Output.h"
 #include "Condition.h"
 #include <sstream>
+#include "End.h"
+#include "Start.h"
 using namespace std;
 
 //constructor: set the ApplicationManager pointer inside this action
@@ -26,7 +28,7 @@ void AddConn::ReadActionParameters()
 	pIn->GetPointClicked(p);
 	start_stat = pManager->GetStatement(p);
 	//check it isnt end statement
-	if ((start_stat->getOutlet()).x == -1) {
+	if (dynamic_cast<End*>(start_stat)) {
 		start_stat = nullptr;
 	}
 	if (dynamic_cast<Condition*>(start_stat)) {
@@ -45,7 +47,7 @@ void AddConn::ReadActionParameters()
 	pIn->GetPointClicked(p);
 	end_stat = pManager->GetStatement(p);
 	//check it isnt start statement
-	if ((end_stat->getInlet()).x == -1) {
+	if (dynamic_cast<Start*>(end_stat)) {
 		end_stat = nullptr;
 	}
 	pOut->ClearStatusBar();
