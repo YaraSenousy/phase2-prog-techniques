@@ -1,10 +1,12 @@
 #pragma once
 #include "Actions/Action.h"
+#include "Statements/Statement.h"
+
 class Copy :
     public Action
 {
-	Point p;
 	Statement* copied;
+
 public:
 	Copy(ApplicationManager* pAppManager);
 	

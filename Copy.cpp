@@ -11,7 +11,14 @@ void Copy::ReadActionParameters()
 
 void Copy::Execute()
 {
+	copied = pManager->GetSelectedStatement();
+	if ( copied != NULL)
+	{
+		pManager->SetClipboard(copied);
+	}
 	
-	pManager->SetClipboard(copied);
+	copied->SetSelected(false) ;
+	pManager->SetSelectedStatement(NULL);
+
 
 }
