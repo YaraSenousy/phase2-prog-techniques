@@ -7,7 +7,7 @@ private:
 	Statement* start_stat;
 	Statement* end_stat;
 
-	int Outlet_branch;
+	int Outlet_branch; //to set the type of the branch (yes,no,defualt)
 
 public:
 	AddConn(ApplicationManager* pAppManager);

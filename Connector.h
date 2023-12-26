@@ -17,7 +17,7 @@ private:
 
 	bool Selected; // true if the connector is selected 
 public:
-	Connector(Statement* Src, Statement* Dst);
+	Connector(Statement* Src, Statement* Dst, int branchtype);
 
 	void		setSrcStat(Statement *Src);
 	Statement*	getSrcStat();	
