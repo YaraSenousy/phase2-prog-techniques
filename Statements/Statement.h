@@ -20,7 +20,7 @@ protected:
 	//It's used as the (End) point of the (Input) connectors
 	Point Outlet;	//A point a connection leaves this statement
 	//It's used as the (Start) point of the (Output) connector
-
+	Connector* pOutConn; //the output connector to each statement (condition is the only one with 2)
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
 	/// Add more parameters if needed.
@@ -31,14 +31,13 @@ public:
 	bool IsSelected() const;
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
-	Point getInlet();
-	Point getOutlet();
+	
 
 	///TODO:The following functions should be supported by the Statement class
 	///		It should then be overridden by each derived Statement
 	///		Decide the parameters that you should pass to each function and its return type
 
-	virtual void Save(ofstream& OutFile) {};	//Save the Statement parameters to a file
+	virtual void Save(ofstream& OutFile) = 0;	//Save the Statement parameters to a file
 	//virtual void Load(ifstream &Infile) = 0;	//Load the Statement parameters from a file
 
 	//virtual void Edit() = 0;		//Edit the Statement parameter
@@ -50,7 +49,9 @@ public:
 
 	///TODO: Add more functions if needed
 	virtual bool InStatement(Point p) = 0; //Check if a point is within the statement 
-
+	Point getInlet();
+	Point getOutlet();
+	virtual void setpOutConn(Connector* conn,int branchtype); //function that set the output connector depending on the branch type
 
 	int GetID();
 

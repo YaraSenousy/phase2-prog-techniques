@@ -13,8 +13,6 @@ class OperatorAssign : public Statement{
 	bool isValue2;  //true if RHS2 is value else if variable
 	string opp; //Opperator used in right handside of assignment
 	Point LeftCorner;
-
-	Connector* pOutConn;
 	
 	
 	void UpdateStatementText();

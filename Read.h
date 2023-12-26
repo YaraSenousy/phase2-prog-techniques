@@ -6,7 +6,6 @@ class Read : public Statement
 {
 private:
 	string VarName; //Variable name 
-	Connector* pOutConn; //Read has one connector
 	Point Leftcorner; //Left corner of the read block
 	void UpdateStatementText();
 

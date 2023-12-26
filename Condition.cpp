@@ -80,3 +80,12 @@ Point Condition::getOutlet_yesOrno(int branchtype)
 		return OutletNo;
 }
 
+void Condition::setpOutConn(Connector* conn, int branchtype)
+{
+	if (branchtype == 1)
+		pOutConnYes = conn;
+	else if (branchtype == 2)
+		pOutConnNo = conn;
+
+}
+

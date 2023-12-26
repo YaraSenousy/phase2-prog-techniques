@@ -68,9 +68,12 @@ void AddConn::Execute()
 		}
 		else
 			pConn->setStartPoint(start_stat->getOutlet());
-		
 
 		pConn->setEndPoint(end_stat->getInlet());
+
+		//setting the source/start statement's output connector
+		//start_stat->setpOutConn(pConn, Outlet_branch);
+	
 		//Create and add a connector to application managers's connector list
 		pManager->AddConnector(pConn);
 	}

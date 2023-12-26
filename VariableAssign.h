@@ -10,7 +10,6 @@ class VariableAssign : public Statement
 	string LHS; //left handside of assignment (variable)
 	string RHS; //right handside of assignment (variable)
 
-	Connector* pOutConn;
 	Point LeftCorner;
 
 	virtual void UpdateStatementText();

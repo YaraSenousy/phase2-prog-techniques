@@ -8,6 +8,7 @@ Statement::Statement()
 	ID = count;
 	Text = "";
 	Selected = false;	
+	pOutConn = NULL; //by defualt there is no output connector
 }
 
 void Statement::SetSelected(bool s)
@@ -25,6 +26,11 @@ Point Statement::getInlet()
 Point Statement::getOutlet()
 {
 	return Outlet;
+}
+
+void Statement::setpOutConn(Connector* conn, int branchtype)
+{
+	pOutConn = conn;
 }
 
 int Statement::GetID()

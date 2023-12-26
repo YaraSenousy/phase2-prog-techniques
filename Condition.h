@@ -29,6 +29,7 @@ public:
 
 	virtual void Save(ofstream& OutFile);
 	Point getOutlet_yesOrno(int branchtype);
+	void setpOutConn(Connector* conn, int branchtype); //function that set the output connector depending on the branch 
 
 };
 #endif
