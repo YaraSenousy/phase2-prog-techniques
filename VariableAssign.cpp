@@ -1,5 +1,6 @@
 #include "VariableAssign.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -53,4 +54,20 @@ bool VariableAssign::InStatement(Point p)
 		return true;
 }
 	return false;
+}
+
+void VariableAssign::Save(ofstream& OutFile)
+{
+	OutFile << "VAR_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+
+}
+
+Point VariableAssign::getInlet()
+{
+	return Inlet;
+}
+
+Point VariableAssign::getOutlet()
+{
+	return Outlet;
 }

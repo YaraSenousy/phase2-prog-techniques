@@ -1,5 +1,6 @@
 #include "ValueAssign.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -49,6 +50,21 @@ bool ValueAssign::InStatement(Point p)
 		return true;
 }
 	return false;
+}
+
+void ValueAssign::Save(ofstream& OutFile)
+{
+	OutFile << "VALUE_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+}
+
+Point ValueAssign::getInlet()
+{
+	return Inlet;
+}
+
+Point ValueAssign::getOutlet()
+{
+	return Outlet;
 }
 
 

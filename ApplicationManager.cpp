@@ -11,6 +11,7 @@
 #include "GUI\Output.h"
 #include "DelAction.h"
 #include "AddCond.h"
+#include "SaveAction.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -54,6 +55,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	{
 		case DEL:
 			pAct = new DelAction(this);
+			break;
+		case SAVE:
+			pAct = new SaveAction(this);
 			break;
 		case ADD_VALUE_ASSIGN:
 			pAct = new AddValueAssign(this);
@@ -121,7 +125,21 @@ void ApplicationManager::DeleteAction(Statement*statd)
 	}
 }
 
-
+void ApplicationManager::SaveAll(ofstream& OutFile)
+{
+	//adding the number of statements to the file
+	OutFile << StatCount << endl;
+	//calling the Save function for each statement
+	for (int i{}; i < StatCount; i++) {
+		StatList[i]->Save(OutFile);
+	}
+	//adding the number of connectors to the file
+	OutFile << ConnCount << endl;
+	//calling the Save funciton for each connector
+	for (int i{}; i < ConnCount; i++) {
+		ConnList[i]->Save(OutFile);
+	}
+}
 
 //==================================================================================//
 //						Statements Management Functions								//

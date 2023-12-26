@@ -34,6 +34,10 @@ public:
 
 	virtual void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
+	virtual void Save(ofstream& OutFile);
+
+	Point getInlet();
+	Point getOutlet();
 };
 
 #endif

@@ -1,6 +1,7 @@
 #include "Write.h"
 #include "GUI/UI_Info.h"
 #include <sstream>
+#include <fstream>
 
 Write::Write(Point Lcorner, string varName)
 {
@@ -36,6 +37,11 @@ bool Write::InStatement(Point p)
 		return true;
 	}
 	return false;
+}
+
+void Write::Save(ofstream& OutFile)
+{
+	OutFile << "WRITE" << " " << ID << " " << Leftcorner.x << " " << Leftcorner.y << " " << VarOrString << endl;
 }
 
 void Write::UpdateStatementText() {
