@@ -26,8 +26,8 @@ void AddConn::ReadActionParameters()
 	pIn->GetPointClicked(p);
 	start_stat = pManager->GetStatement(p);
 	//check it isnt end statement
-	if ((start_stat->getInlet()).x == -1) {
-		start_stat = NULL;
+	if ((start_stat->getOutlet()).x == -1) {
+		start_stat = nullptr;
 	}
 	if (dynamic_cast<Condition*>(start_stat)) {
 		pOut->PrintMessage("type 1 for Yes otherwise No");
@@ -45,8 +45,8 @@ void AddConn::ReadActionParameters()
 	pIn->GetPointClicked(p);
 	end_stat = pManager->GetStatement(p);
 	//check it isnt start statement
-	if ((end_stat->getOutlet()).x == -1) {
-		end_stat = NULL;
+	if ((end_stat->getInlet()).x == -1) {
+		end_stat = nullptr;
 	}
 	pOut->ClearStatusBar();
 }
@@ -55,7 +55,7 @@ void AddConn::Execute()
 {
 	ReadActionParameters();
 	//creating new connector
-	if (start_stat != NULL && end_stat != NULL) {
+	if ((start_stat != nullptr) && (end_stat != nullptr)) {
 		Connector* pConn = new Connector(start_stat, end_stat);
 		//setting the start and end point
 		pConn->setStartPoint(start_stat->getOutlet());
