@@ -63,3 +63,14 @@ bool Condition::InStatement(Point p)
 	return false;
 }
 
+/*Point Condition::getOutlet(int branchtype)
+{
+	if (branchtype == 1) {
+		return OutletYes;
+	}
+	else
+		return OutletNo;
+}*/
+
+
+

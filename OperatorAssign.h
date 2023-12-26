@@ -12,11 +12,10 @@ class OperatorAssign : public Statement{
 	string RHS2; //Second variable/ value of right handside of assignment
 	bool isValue2;  //true if RHS2 is value else if variable
 	string opp; //Opperator used in right handside of assignment
+	Point LeftCorner;
 
 	Connector* pOutConn;
-	Point Inlet; //used as end point of input connector
-	Point Outlet; //used as start point of output connector
-	Point LeftCorner; //left corner of statement block
+	
 	
 	void UpdateStatementText();
 

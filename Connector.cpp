@@ -7,6 +7,7 @@ Connector::Connector(Statement* Src, Statement* Dst)
 	
 	SrcStat = Src;
 	DstStat = Dst;
+	Selected = false; //not higlighted by default
 }
 
 void Connector::setSrcStat(Statement *Src)
@@ -42,10 +43,10 @@ void Connector::Draw(Output* pOut) const
 
 bool Connector::IsConnector(Point p)
 {
-	if ((p.y == Start.y) && (p.x > Start.x) && (p.x < End.x)) {
+	if ((p.y <= Start.y+5) && (p.y >= Start.y - 5) && (p.x > Start.x) && (p.x < End.x)) {
 		return true;
 	}
-	else if ((p.x == End.x) && (p.y > Start.y) && (p.y < End.y))
+	else if ((p.x <= End.x + 5) &&(p.x >= End.x - 5) && (p.y > Start.y) && (p.y < End.y))
 		return true;
 	else
 		return false;

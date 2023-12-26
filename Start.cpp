@@ -10,7 +10,7 @@ Start::Start(Point Lcorner)
 	LeftCorner = Lcorner;
 
 	pOutConn = NULL;  //No connectors yet
-
+	Inlet.x == -1;  // make sure start isnt destination statement
 	Outlet.x = LeftCorner.x + UI.START_WDTH / 2;
 	Outlet.y = LeftCorner.y + UI.START_HI;
 }

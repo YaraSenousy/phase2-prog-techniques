@@ -11,7 +11,6 @@ private:
 
 	Connector* pOutConnYes; //first connector in case condition is true
 	Connector* pOutConnNo; //second connector in case condition false
-	Point Inlet; //only one inlet
 	Point OutletYes; //outlet in case condition is true
 	Point OutletNo; //Outlet in case condition is false
 	Point Corner; //corner of the block
@@ -27,6 +26,7 @@ public:
 
 	void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
+
 };
 #endif
 

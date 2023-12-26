@@ -11,8 +11,6 @@ class VariableAssign : public Statement
 	string RHS; //right handside of assignment (variable)
 
 	Connector* pOutConn;
-	Point Inlet;
-	Point Outlet;
 	Point LeftCorner;
 
 	virtual void UpdateStatementText();

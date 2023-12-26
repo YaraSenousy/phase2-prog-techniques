@@ -14,6 +14,10 @@ protected:
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the folwchart
 
+	Point Inlet;	//A point where connections enters this statement 
+	//It's used as the (End) point of the (Input) connectors
+	Point Outlet;	//A point a connection leaves this statement
+	//It's used as the (Start) point of the (Output) connector
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
@@ -25,7 +29,8 @@ public:
 	bool IsSelected() const;
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
-	
+	Point getInlet();
+	Point getOutlet();
 
 	///TODO:The following functions should be supported by the Statement class
 	///		It should then be overridden by each derived Statement
@@ -43,6 +48,7 @@ public:
 
 	///TODO: Add more functions if needed
 	virtual bool InStatement(Point p) = 0; //Check if a point is within the statement 
+
 };
 
 #endif

@@ -10,7 +10,6 @@
 class End : public Statement
 {
 private:
-	Point Inlet;           //A point a connection enters this statement
 	Point LeftCorner;       //left corenr of the statement block.
 
 	virtual void UpdateStatementText();
