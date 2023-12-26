@@ -280,6 +280,7 @@
     </ClCompile>
     <ClCompile Include="Condition.cpp" />
     <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="Copy.cpp" />
     <ClCompile Include="DelAction.cpp" />
     <ClCompile Include="End.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
@@ -332,6 +333,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Condition.h" />
     <ClInclude Include="Connector.h" />
+    <ClInclude Include="Copy.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DelAction.h" />
     <ClInclude Include="End.h" />
