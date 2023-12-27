@@ -30,7 +30,7 @@ public:
 	virtual void Save(ofstream& OutFile);
 	void Load(ifstream& Infile);
 	Point getOutlet_yesOrno(int branchtype);
-
+	virtual Point getOutlet(int branchtype);
 };
 #endif
 

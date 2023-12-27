@@ -87,3 +87,12 @@ Point Condition::getOutlet_yesOrno(int branchtype)
 		return OutletNo;
 }
 
+Point Condition::getOutlet(int branchtype)
+{
+	if (branchtype == 1) {
+		return OutletYes;
+	}
+	else
+		return OutletNo;
+}
+

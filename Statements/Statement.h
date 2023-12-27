@@ -33,7 +33,7 @@ public:
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
 	Point getInlet();
-	Point getOutlet();
+	virtual Point getOutlet(int branchtype);
 
 	///TODO:The following functions should be supported by the Statement class
 	///		It should then be overridden by each derived Statement

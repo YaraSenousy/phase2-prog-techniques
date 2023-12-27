@@ -239,9 +239,28 @@ void ApplicationManager::LoadAll(ifstream& InFile)
 			pStat = new Write();
 			break;
 		}
+		//calling load functionon each statement
 		pStat->Load(InFile);
+		//adding the statement to the StatList
 		AddStatement(pStat);
 	}
+	//reading the number of connectors
+	/*int c_count;
+	InFile >> c_count;
+	for (int i{}; i < c_count; i++) {
+		int source_id;
+		int target_id;
+		int outletbranch;
+		//reading the source statement and target statement ids and the branch type
+		InFile >> source_id >> target_id >> outletbranch;
+		Point start;
+		Point end;
+		//looping on the statements to find the source and target statement
+		for (int j; i < StatCount; i++) {
+			if (StatList[i]->GetID() == source_id)
+				//start = source_id()
+		}
+	}*/
 }
 
 void ApplicationManager::ExitAct()

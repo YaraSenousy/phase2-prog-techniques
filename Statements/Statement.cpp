@@ -23,7 +23,7 @@ Point Statement::getInlet()
 	return Inlet;
 }
 
-Point Statement::getOutlet()
+Point Statement::getOutlet(int branchtype)
 {
 	return Outlet;
 }
