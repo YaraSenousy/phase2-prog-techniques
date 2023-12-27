@@ -135,7 +135,7 @@ void ApplicationManager::DeleteConnStat(Point Pout1,Point Pout2,Point Pin)
 			ConnList[ConnCount - 1] = NULL;
 			ConnCount--;
 		}
-		if (Pout2.x != 0 && Pout2.y != 0) {
+		else if (Pout2.x != 0 && Pout2.y != 0) {
 			if (Pout2.x == ConnList[i]->getStartPoint().x && Pout2.y == ConnList[i]->getStartPoint().y) {
 				delete ConnList[i];
 				ConnList[i] = ConnList[ConnCount - 1];
@@ -143,7 +143,7 @@ void ApplicationManager::DeleteConnStat(Point Pout1,Point Pout2,Point Pin)
 				ConnCount--;
 			}
 		}
-		if (Pin.x == ConnList[i]->getEndPoint().x && Pin.y == ConnList[i]->getEndPoint().y) {
+		else if (Pin.x == ConnList[i]->getEndPoint().x && Pin.y == ConnList[i]->getEndPoint().y) {
 			delete ConnList[i];
 			ConnList[i] = ConnList[ConnCount - 1];
 			ConnList[ConnCount - 1] = NULL;
