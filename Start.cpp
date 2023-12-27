@@ -13,6 +13,7 @@ Start::Start(Point Lcorner)
 	pOutConn = NULL;  //No connectors yet
 	Outlet.x = LeftCorner.x + UI.START_WDTH / 2;
 	Outlet.y = LeftCorner.y + UI.START_HI;
+	
 }
 
 void Start::Draw(Output* pOut) const
@@ -31,7 +32,13 @@ bool Start::InStatement(Point p)
 
 void Start::Save(ofstream& OutFile)
 {
-	OutFile << "STRT" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
+	OutFile << 1 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
+}
+
+void Start::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y;
+	UpdateStatementText();
 }
 
 void Start::UpdateStatementText()

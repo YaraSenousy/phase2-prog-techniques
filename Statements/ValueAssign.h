@@ -27,7 +27,7 @@ private:
 	virtual void UpdateStatementText();
 	
 public:
-	ValueAssign(Point Lcorner, string LeftHS="", double RightHS=0);
+	ValueAssign(Point Lcorner=Point(-1,-1), string LeftHS = "", double RightHS = 0);
 	
 	void setLHS(const string &L);
 	void setRHS(double R);
@@ -35,6 +35,7 @@ public:
 	virtual void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
 	virtual void Save(ofstream& OutFile);
+	void Load(ifstream& Infile);
 
 	Point getInlet();
 	Point getOutlet();

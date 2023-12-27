@@ -64,6 +64,7 @@
     <ClCompile Include="VariableAssign.cpp" />
     <ClCompile Include="Write.cpp" />
     <ClCompile Include="Actions\Action.cpp" />
+    <ClCompile Include="LoadAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCond.h" />
@@ -114,6 +115,7 @@
     <ClInclude Include="Statements\Statement.h" />
     <ClInclude Include="VariableAssign.h" />
     <ClInclude Include="Write.h" />
+    <ClInclude Include="LoadAction.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

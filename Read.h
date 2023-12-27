@@ -11,11 +11,12 @@ private:
 	void UpdateStatementText();
 
 public:
-	Read(Point Lcorner, string varName);
+	Read(Point Lcorner = Point(-1,-1), string varName = "");
 	void setVarName(const string& var);
 	void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
 	virtual void Save(ofstream& OutFile);
+	void Load(ifstream& Infile);
 };
 
 #endif

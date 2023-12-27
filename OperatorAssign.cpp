@@ -70,5 +70,11 @@ bool OperatorAssign::InStatement(Point p)
 
 void OperatorAssign::Save(ofstream& OutFile)
 {
-	OutFile << "OP_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS1 << " " << opp << " " << RHS2 << endl;
+	OutFile << 5 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS1 << " " << opp << " " << RHS2 << endl;
+}
+
+void OperatorAssign::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> RHS1 >> opp >> RHS2;
+	UpdateStatementText();
 }

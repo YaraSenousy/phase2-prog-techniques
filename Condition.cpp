@@ -69,7 +69,13 @@ bool Condition::InStatement(Point p)
 
 void Condition::Save(ofstream& OutFile)
 {
-	OutFile << "COND" << " " << ID << " " << LHS << " " << CompOp << " " << RHS << endl;
+	OutFile << 6 << " " << ID << " "<< Corner.x << " " << Corner.y << " " << LHS << " " << CompOp << " " << RHS << endl;
+}
+
+void Condition::Load(ifstream& Infile)
+{
+	Infile >> ID >>Corner.x>>Corner.y >> LHS >> CompOp >> RHS;
+	UpdateStatementText();
 }
 
 Point Condition::getOutlet_yesOrno(int branchtype)
