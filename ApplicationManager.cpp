@@ -225,10 +225,19 @@ Connector* ApplicationManager::GetConnector(Point P) const
 Statement *ApplicationManager::GetSelectedStatement() const
 {	return pSelectedStat;	}
 
+Connector* ApplicationManager::GetSelectedConnector()const {
+	return pSelectedConnector;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 //Set the statement selected by the user
 void ApplicationManager::SetSelectedStatement(Statement *pStat)
 {	pSelectedStat = pStat;	}
+
+void ApplicationManager::SetSelectedConnector(Connector * pConn)
+{
+	pSelectedConnector = pConn;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////
 //Returns the Clipboard
