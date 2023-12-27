@@ -32,6 +32,12 @@ void End::Save(ofstream& OutFile)
 	OutFile << 2 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
 }
 
+void End::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y;
+	UpdateStatementText();
+}
+
 void End::UpdateStatementText()
 {}
 

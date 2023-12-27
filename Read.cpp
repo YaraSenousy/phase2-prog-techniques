@@ -41,6 +41,11 @@ void Read::Save(ofstream& OutFile)
 {
 	OutFile << 7 << " " << ID <<" "<< Leftcorner.x << " " << Leftcorner.y << " " << VarName << endl;
 }
+void Read::Load(ifstream& Infile)
+{
+	Infile >> ID >> Leftcorner.x >> Leftcorner.y >> VarName;
+	UpdateStatementText();
+}
 void Read::UpdateStatementText() {
 	ostringstream T;
 	T << VarName;

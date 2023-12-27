@@ -72,3 +72,9 @@ void OperatorAssign::Save(ofstream& OutFile)
 {
 	OutFile << 5 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS1 << " " << opp << " " << RHS2 << endl;
 }
+
+void OperatorAssign::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> RHS1 >> opp >> RHS2;
+	UpdateStatementText();
+}

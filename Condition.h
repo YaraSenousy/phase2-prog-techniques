@@ -28,6 +28,7 @@ public:
 	virtual bool InStatement(Point p);
 
 	virtual void Save(ofstream& OutFile);
+	void Load(ifstream& Infile);
 	Point getOutlet_yesOrno(int branchtype);
 
 };

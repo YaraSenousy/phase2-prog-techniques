@@ -62,6 +62,12 @@ void VariableAssign::Save(ofstream& OutFile)
 
 }
 
+void VariableAssign::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> RHS;
+	UpdateStatementText();
+}
+
 Point VariableAssign::getInlet()
 {
 	return Inlet;
