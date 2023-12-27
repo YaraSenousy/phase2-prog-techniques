@@ -27,13 +27,23 @@ void Select_Unselect::ReadActionParameters()
 }
 
 void Select_Unselect::Execute()
-{
+{	
 	ReadActionParameters();
-	if (statement) {
-		statement->SetSelected(!(statement->IsSelected()));
+
+	if (pManager->GetSelectedStatement()) {
+		(pManager->GetSelectedStatement())->SetSelected(false);
+		pManager->SetSelectedStatement(NULL);
 	}
-	else if (connector) {
-		connector->SetSelected(!(connector->IsSelected()));
+	if (pManager->GetSelectedStatement()) {
+		(pManager->GetSelectedConnector()->SetSelected(false));
+		pManager->SetSelectedConnector(NULL);
 	}
-	
+		if (statement) {
+			statement->SetSelected(!(statement->IsSelected()));
+			pManager->SetSelectedStatement(statement);
+		}
+		else if (connector) {
+			connector->SetSelected(!(connector->IsSelected()));
+			pManager->SetSelectedConnector(connector);
+		}	
 }
