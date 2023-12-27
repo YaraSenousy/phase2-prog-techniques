@@ -26,6 +26,7 @@ protected:
 	/// Add more parameters if needed.
 
 public:
+	int check;
 	Statement();
 	void SetSelected(bool s);
 	bool IsSelected() const;

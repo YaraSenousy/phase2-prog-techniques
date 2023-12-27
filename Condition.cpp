@@ -5,6 +5,7 @@
 
 Condition::Condition(Point corner,string left,string compop, string right, bool isval)
 {
+	check = 2;
 	LHS = left;
 	CompOp = compop;
 	RHS = right;

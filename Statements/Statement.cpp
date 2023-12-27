@@ -8,6 +8,7 @@ Statement::Statement()
 	ID = count;
 	Text = "";
 	Selected = false;	
+	check = 1;
 }
 
 void Statement::SetSelected(bool s)
