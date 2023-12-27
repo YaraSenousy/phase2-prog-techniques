@@ -12,6 +12,7 @@ OperatorAssign::OperatorAssign(Point Lcorner, string LeftHs, string RightHs1,boo
 	opp = RightHsO;
 	RHS2 = RightHs2;
 	isValue2 = value2;
+	stat_type = ITM_OPER_ASSIGN;
 
 	UpdateStatementText();
 
@@ -70,5 +71,5 @@ bool OperatorAssign::InStatement(Point p)
 
 void OperatorAssign::Save(ofstream& OutFile)
 {
-	OutFile << "OP_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS1 << " " << opp << " " << RHS2 << endl;
+	OutFile << stat_type << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS1 << " " << opp << " " << RHS2 << endl;
 }

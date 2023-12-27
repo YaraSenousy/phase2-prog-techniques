@@ -15,7 +15,7 @@ private:
 	virtual void UpdateStatementText();
 
 public:
-	End(Point Lcorner);
+	End(Point Lcorner = Point(-1,-1));
 	virtual void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
 	virtual void Save(ofstream& OutFile);

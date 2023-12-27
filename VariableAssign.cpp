@@ -8,6 +8,7 @@ VariableAssign::VariableAssign(Point Lcorner, string LeftHS, string RightHS) {
 	//Passing LeftHS and RightHS to constructor VariableAssign
 	LHS = LeftHS;
 	RHS = RightHS;
+	stat_type = ITM_VARIABLE_ASSIGN;
 
 	UpdateStatementText();
 
@@ -58,7 +59,7 @@ bool VariableAssign::InStatement(Point p)
 
 void VariableAssign::Save(ofstream& OutFile)
 {
-	OutFile << "VAR_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+	OutFile << stat_type << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
 
 }
 

@@ -10,6 +10,7 @@ ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS)
 	//       before passing it to the constructor of ValueAssign
 	LHS = LeftHS;
 	RHS = RightHS;
+	stat_type = ITM_VALUE_ASSIGN;
 
 	UpdateStatementText();
 
@@ -23,6 +24,7 @@ ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS)
 	Outlet.x = Inlet.x;
 	Outlet.y = LeftCorner.y + UI.ASSGN_HI;	
 }
+
 
 void ValueAssign::setLHS(const string &L)
 {
@@ -54,7 +56,16 @@ bool ValueAssign::InStatement(Point p)
 
 void ValueAssign::Save(ofstream& OutFile)
 {
-	OutFile << "VALUE_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+	OutFile << stat_type << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+}
+
+void ValueAssign::Load(ifstream& Infile)
+{
+	Infile >> ID;
+	Infile >> LeftCorner.x;
+	Infile >> LeftCorner.y;
+	Infile >> LHS;
+	Infile >> RHS;
 }
 
 Point ValueAssign::getInlet()

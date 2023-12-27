@@ -8,6 +8,7 @@ Write::Write(Point Lcorner, string varName)
 	//set variabla name
 	VarOrString = varName;
 	UpdateStatementText();
+	stat_type = ITM_OUTPUT;
 
 	Leftcorner = Lcorner;
 	pOutConn = NULL; //No connector yet

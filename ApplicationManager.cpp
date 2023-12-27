@@ -12,6 +12,15 @@
 #include "DelAction.h"
 #include "AddCond.h"
 #include "SaveAction.h"
+#include "LoadAction.h"
+#include "Start.h"
+#include "End.h"
+#include "Write.h"
+#include "Read.h"
+#include "Condition.h"
+#include "statements\ValueAssign.h"
+#include "VariableAssign.h"
+#include "OperatorAssign.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -59,6 +68,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SAVE:
 			pAct = new SaveAction(this);
 			break;
+		case LOAD:
+			pAct = new LoadAction(this);
 		case ADD_VALUE_ASSIGN:
 			pAct = new AddValueAssign(this);
 			break;
@@ -163,6 +174,51 @@ void ApplicationManager::SaveAll(ofstream& OutFile)
 	//calling the Save funciton for each connector
 	for (int i{}; i < ConnCount; i++) {
 		ConnList[i]->Save(OutFile);
+	}
+}
+
+void ApplicationManager::LoadAll(ifstream& InFile)
+{
+	//removing any statement or connector on the drawing area first
+	delete[] StatList;
+	delete[] ConnList;
+	//reading from the file the number of statements
+	int s_count;
+	InFile >> s_count;
+	Statement* pStat;
+	int statement_type;
+	for (int i{}; i < s_count; i++) {
+		//reads the statement type and creates an object
+		InFile >> statement_type;
+		//create new statement
+		switch (statement_type)
+		{
+		case ITM_START:
+			pStat = new Start();
+			break;
+		case ITM_END:
+			pStat = new End();
+			break;
+		case ITM_VALUE_ASSIGN:
+			pStat = new ValueAssign();
+			break;
+		case ITM_VARIABLE_ASSIGN:
+			pStat = new VariableAssign();
+			break;
+		case ITM_OPER_ASSIGN:
+			pStat = new OperatorAssign();
+			break;
+		case ITM_COND:
+			pStat = new Condition();
+			break;
+		case ITM_INPUT:
+			pStat = new Read();
+			break;
+		case ITM_OUTPUT:
+			pStat = new Write();
+			break;
+		}
+		pStat->Load(InFile);
 	}
 }
 
