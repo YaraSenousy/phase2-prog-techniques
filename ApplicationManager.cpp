@@ -13,6 +13,7 @@
 #include "AddCond.h"
 #include "SaveAction.h"
 #include "Select_Unselect.h"
+#include "ExitingAct.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -76,7 +77,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case EXIT:
 			///create Exit Action here
-			
+			pAct = new ExitingAct(this);
 			break;
 		
 		case STATUS:
@@ -185,6 +186,33 @@ void ApplicationManager::SaveAll(ofstream& OutFile)
 	}
 }
 
+void ApplicationManager::ExitAct()
+{
+	/*
+	pOut->ClearStatusBar();
+	pOut->PrintMessage("Deleting all statements");
+	for (int i = 0; i < StatCount; i++) {
+		delete StatList[i];
+	}
+	StatList[0] = NULL;
+	UpdateInterface();
+	pIn->GetUserAction();
+	pOut->ClearStatusBar();
+	pOut->PrintMessage("Deleting all connectors");
+	for (int i = 0; i < ConnCount; i++) {
+		delete ConnList[i];
+	}
+	ConnList[0] = NULL;
+	UpdateInterface();
+	pIn->GetUserAction();
+	pOut->ClearStatusBar();
+	pOut->PrintMessage("CLick to delete input pointer");
+	pIn->GetUserAction();
+	pOut->PrintMessage("Deleting input pointer you can no longer click :) ");
+	delete pIn;*/
+}
+
+
 //==================================================================================//
 //						Statements Management Functions								//
 //==================================================================================//
@@ -279,13 +307,15 @@ void ApplicationManager::UpdateInterface() const
 	pOut->ClearDrawArea();
 
 	//Draw all statements
-	for(int i=0; i<StatCount; i++)
-		StatList[i]->Draw(pOut);
-	
+	if (StatList[0] != NULL) {
+		for (int i = 0; i < StatCount; i++)
+			StatList[i]->Draw(pOut);
+	}
 	//Draw all connections
-	for(int i=0; i<ConnCount; i++)
-		ConnList[i]->Draw(pOut);
-
+	if (ConnList[0] != NULL) {
+		for (int i = 0; i < ConnCount; i++)
+			ConnList[i]->Draw(pOut);
+	}
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input
