@@ -126,7 +126,7 @@ void ApplicationManager::DeleteAction(Statement*statd)
 	}
 }
 
-void ApplicationManager::DeleteConn(Point Pout1,Point Pout2,Point Pin)
+void ApplicationManager::DeleteConnStat(Point Pout1,Point Pout2,Point Pin)
 {
 	for (int i = 0; i < ConnCount; i++) {
 		if (Pout1.x == ConnList[i]->getStartPoint().x && Pout1.y == ConnList[i]->getStartPoint().y) {
@@ -135,13 +135,27 @@ void ApplicationManager::DeleteConn(Point Pout1,Point Pout2,Point Pin)
 			ConnList[ConnCount - 1] = NULL;
 			ConnCount--;
 		}
-		else if (Pout2.x == ConnList[i]->getStartPoint().x && Pout2.y == ConnList[i]->getStartPoint().y) {
+		if (Pout2.x != 0 && Pout2.y != 0) {
+			if (Pout2.x == ConnList[i]->getStartPoint().x && Pout2.y == ConnList[i]->getStartPoint().y) {
+				delete ConnList[i];
+				ConnList[i] = ConnList[ConnCount - 1];
+				ConnList[ConnCount - 1] = NULL;
+				ConnCount--;
+			}
+		}
+		if (Pin.x == ConnList[i]->getEndPoint().x && Pin.y == ConnList[i]->getEndPoint().y) {
 			delete ConnList[i];
 			ConnList[i] = ConnList[ConnCount - 1];
 			ConnList[ConnCount - 1] = NULL;
 			ConnCount--;
 		}
-		else if (Pin.x == ConnList[i]->getEndPoint().x && Pin.y == ConnList[i]->getEndPoint().y) {
+	}
+}
+
+void ApplicationManager::DeleteConn(Connector* Conn)
+{
+	for (int i = 0; i < ConnCount; i++) {
+		if (Conn == ConnList[i]) {
 			delete ConnList[i];
 			ConnList[i] = ConnList[ConnCount - 1];
 			ConnList[ConnCount - 1] = NULL;

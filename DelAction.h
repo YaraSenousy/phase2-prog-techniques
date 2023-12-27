@@ -7,6 +7,7 @@ class DelAction : public Action
 private:
 	Point position;
 	Statement * stat;
+	Connector* conn;
 
 public:
 	DelAction(ApplicationManager *pAppManager);

@@ -45,6 +45,11 @@ struct Point
 	int x,y;
 	Point(int a=0, int b=0)	//constructor
 	{ x=a;	y=b;	}
+	bool operator==(Point P) {
+		if (this->x == P.x && this->y == P.y)
+			return true;
+		else return false;
+	}
 };
 
 #endif
