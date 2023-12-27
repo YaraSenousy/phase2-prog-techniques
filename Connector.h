@@ -31,8 +31,10 @@ public:
 	Point getEndPoint();
 
 	void Draw(Output* pOut) const;
-	bool IsConnector(Point p);
+	bool InConnector(Point p);
+	bool IsSelected();
 	void Save(ofstream& OutFile);
+	void SetSelected(bool s);
 };
 
 #endif
