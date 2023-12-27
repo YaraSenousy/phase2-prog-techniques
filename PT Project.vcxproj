@@ -289,6 +289,7 @@
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
     <ClCompile Include="OperatorAssign.cpp" />
+    <ClCompile Include="paste.cpp" />
     <ClCompile Include="SaveAction.cpp" />
     <ClCompile Include="Select_Unselect.cpp" />
     <ClCompile Include="Start.cpp" />
@@ -346,6 +347,7 @@
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="HelperFn.h" />
     <ClInclude Include="OperatorAssign.h" />
+    <ClInclude Include="paste.h" />
     <ClInclude Include="SaveAction.h" />
     <ClInclude Include="Select_Unselect.h" />
     <ClInclude Include="Start.h" />
