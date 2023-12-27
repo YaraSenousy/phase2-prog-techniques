@@ -13,6 +13,15 @@ Connector::Connector(Statement* Src, Statement* Dst,int branchtype)
 
 }
 
+bool Connector::IsSelected() {
+
+	return Selected;
+}
+
+void Connector::SetSelected(bool s) {
+	Selected = s;
+}
+
 void Connector::setSrcStat(Statement *Src)
 {	SrcStat = Src;	}
 
@@ -46,9 +55,8 @@ void Connector::Draw(Output* pOut) const
 	pOut->DrawConnector(Start, End, Selected);
 }
 
-bool Connector::IsConnector(Point p)
+bool Connector::InConnector(Point p)
 {
-
 	if ((p.y <= Start.y+5) && (p.y >= Start.y - 5) && (p.x > Start.x) && (p.x < End.x)) {
 	//check if the p is within the lines of the connector
 	

@@ -21,6 +21,8 @@
 #include "statements\ValueAssign.h"
 #include "VariableAssign.h"
 #include "OperatorAssign.h"
+#include "Select_Unselect.h"
+#include "ExitingAct.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -82,12 +84,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case SELECT:
 			///create Select Action here
-
+			pAct = new Select_Unselect(this);
 			break;
 
 		case EXIT:
 			///create Exit Action here
-			
+			pAct = new ExitingAct(this);
 			break;
 		
 		case STATUS:
@@ -137,7 +139,7 @@ void ApplicationManager::DeleteAction(Statement*statd)
 	}
 }
 
-void ApplicationManager::DeleteConn(Point Pout1,Point Pout2,Point Pin)
+void ApplicationManager::DeleteConnStat(Point Pout1, Point Pout2, Point Pin)
 {
 	for (int i = 0; i < ConnCount; i++) {
 		if (Pout1.x == ConnList[i]->getStartPoint().x && Pout1.y == ConnList[i]->getStartPoint().y) {
@@ -146,13 +148,31 @@ void ApplicationManager::DeleteConn(Point Pout1,Point Pout2,Point Pin)
 			ConnList[ConnCount - 1] = NULL;
 			ConnCount--;
 		}
-		else if (Pout2.x == ConnList[i]->getStartPoint().x && Pout2.y == ConnList[i]->getStartPoint().y) {
+	}
+	for (int i = 0; i < ConnCount; i++) {
+		if (Pout2.x != 0 && Pout2.y != 0) {
+			if (Pout2.x == ConnList[i]->getStartPoint().x && Pout2.y == ConnList[i]->getStartPoint().y) {
+				delete ConnList[i];
+				ConnList[i] = ConnList[ConnCount - 1];
+				ConnList[ConnCount - 1] = NULL;
+				ConnCount--;
+			}
+		}
+	}
+	for (int i = 0; i < ConnCount; i++) {
+		if (Pin.x == ConnList[i]->getEndPoint().x && Pin.y == ConnList[i]->getEndPoint().y) {
 			delete ConnList[i];
 			ConnList[i] = ConnList[ConnCount - 1];
 			ConnList[ConnCount - 1] = NULL;
 			ConnCount--;
 		}
-		else if (Pin.x == ConnList[i]->getEndPoint().x && Pin.y == ConnList[i]->getEndPoint().y) {
+	}
+}
+
+void ApplicationManager::DeleteConn(Connector* Conn)
+{
+	for (int i = 0; i < ConnCount; i++) {
+		if (Conn == ConnList[i]) {
 			delete ConnList[i];
 			ConnList[i] = ConnList[ConnCount - 1];
 			ConnList[ConnCount - 1] = NULL;
@@ -224,6 +244,31 @@ void ApplicationManager::LoadAll(ifstream& InFile)
 	}
 }
 
+void ApplicationManager::ExitAct()
+{
+	/*
+	pOut->ClearStatusBar();
+	pOut->PrintMessage("Deleting all statements");
+	for (int i = 0; i < StatCount; i++) {
+		delete StatList[i];
+	}
+	StatList[0] = NULL;
+	UpdateInterface();
+	pIn->GetUserAction();
+	pOut->ClearStatusBar();
+	pOut->PrintMessage("Deleting all connectors");
+	for (int i = 0; i < ConnCount; i++) {
+		delete ConnList[i];
+	}
+	ConnList[0] = NULL;
+	UpdateInterface();
+	pIn->GetUserAction();
+	pOut->ClearStatusBar();
+	pOut->PrintMessage("CLick to delete input pointer");
+	pIn->GetUserAction();
+	pOut->PrintMessage("Deleting input pointer you can no longer click :) ");
+	delete pIn;*/
+}
 //==================================================================================//
 //						Statements Management Functions								//
 //==================================================================================//
@@ -269,10 +314,10 @@ void ApplicationManager::AddConnector(Connector* pConn)
 Connector* ApplicationManager::GetConnector(Point P) const
 {
 	//loop on all connectors
-	for (int i{}; i++; i < ConnCount) {
+	for (int i{}; i < ConnCount; i++) {
 		//check if the point belong to a connector and return a pointer to it
-		if (ConnList[i]->IsConnector(P)) {
-			ConnList[i];
+		if (ConnList[i]->InConnector(P)) {
+			return ConnList[i];
 		}
 	}
 	return nullptr;
@@ -282,10 +327,19 @@ Connector* ApplicationManager::GetConnector(Point P) const
 Statement *ApplicationManager::GetSelectedStatement() const
 {	return pSelectedStat;	}
 
+Connector* ApplicationManager::GetSelectedConnector()const {
+	return pSelectedConnector;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 //Set the statement selected by the user
 void ApplicationManager::SetSelectedStatement(Statement *pStat)
 {	pSelectedStat = pStat;	}
+
+void ApplicationManager::SetSelectedConnector(Connector * pConn)
+{
+	pSelectedConnector = pConn;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////
 //Returns the Clipboard
@@ -309,13 +363,15 @@ void ApplicationManager::UpdateInterface() const
 	pOut->ClearDrawArea();
 
 	//Draw all statements
-	for(int i=0; i<StatCount; i++)
-		StatList[i]->Draw(pOut);
-	
+	if (StatList[0] != NULL) {
+		for (int i = 0; i < StatCount; i++)
+			StatList[i]->Draw(pOut);
+	}
 	//Draw all connections
-	for(int i=0; i<ConnCount; i++)
-		ConnList[i]->Draw(pOut);
-
+	if (ConnList[0] != NULL) {
+		for (int i = 0; i < ConnCount; i++)
+			ConnList[i]->Draw(pOut);
+	}
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input

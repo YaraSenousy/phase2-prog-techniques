@@ -10,6 +10,7 @@ using namespace std;
 DelAction::DelAction(ApplicationManager* pAppManager) :Action(pAppManager)
 {
 	stat = NULL;
+	conn = NULL;
 }
 
 void DelAction::ReadActionParameters()
@@ -21,21 +22,27 @@ void DelAction::ReadActionParameters()
 
 	pIn->GetPointClicked(position);
 	pOut->ClearStatusBar();
-
-	stat = pManager->GetStatement(position);
+	if (pManager->GetStatement(position) != NULL)
+		stat = pManager->GetStatement(position);
+	else
+		conn = pManager->GetConnector(position);
 }
 
 void DelAction::Execute()
 {
 	ReadActionParameters();
-
 	if (stat != NULL) {
-		Condition* cond = dynamic_cast<Condition*>(stat);
-		if (cond)
-			pManager->DeleteConn(cond->getOutlet_yesOrno(1), cond->getOutlet_yesOrno(2), cond->getInlet());
+		Point p(0, 0);
+		if (stat->check ==2) {
+			Condition* cond = dynamic_cast<Condition*>(stat);
+			pManager->DeleteConnStat(cond->getOutlet_yesOrno(1), cond->getOutlet_yesOrno(2), cond->getInlet());
+		}
 		else
-			pManager->DeleteConn(stat->getOutlet(), NULL, stat->getInlet());
+			pManager->DeleteConnStat(stat->getOutlet(), p, stat->getInlet());
 		pManager->DeleteAction(stat);
+	}
+	if (conn != NULL) {
+		pManager->DeleteConn(conn);
 	}
 }
 

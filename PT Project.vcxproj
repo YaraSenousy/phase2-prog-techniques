@@ -283,12 +283,14 @@
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="DelAction.cpp" />
     <ClCompile Include="End.cpp" />
+    <ClCompile Include="ExitingAct.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
     <ClCompile Include="LoadAction.cpp" />
     <ClCompile Include="OperatorAssign.cpp" />
     <ClCompile Include="SaveAction.cpp" />
+    <ClCompile Include="Select_Unselect.cpp" />
     <ClCompile Include="Start.cpp" />
     <ClCompile Include="Read.cpp" />
     <ClCompile Include="Statements\ValueAssign.cpp" />
@@ -337,6 +339,7 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DelAction.h" />
     <ClInclude Include="End.h" />
+    <ClInclude Include="ExitingAct.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
@@ -344,6 +347,7 @@
     <ClInclude Include="LoadAction.h" />
     <ClInclude Include="OperatorAssign.h" />
     <ClInclude Include="SaveAction.h" />
+    <ClInclude Include="Select_Unselect.h" />
     <ClInclude Include="Start.h" />
     <ClInclude Include="Read.h" />
     <ClInclude Include="Statements\ValueAssign.h" />

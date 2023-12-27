@@ -24,6 +24,8 @@ private:
 	Statement *pClipboard;    //a pointer to the last copied/cut statement
 	                          //you can set and get this pointer
 
+	Connector* pSelectedConnector; //a pointer to the last selected connector
+
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
@@ -37,9 +39,11 @@ public:
 	                                  //and returns the corresponding action type
 	void ExecuteAction(ActionType) ;  //Creates an action and executes it
 	void DeleteAction(Statement *statd); //Deletes a statement
-	void DeleteConn(Point Pout1,Point Pout2,Point Pin); //deletes connector attached to a statment 
+	void DeleteConnStat(Point Pout1,Point Pout2,Point Pin);
+	void DeleteConn(Connector* Conn);
 	void SaveAll(ofstream& OutFile); //call Save function for each statement and connector
-	void LoadAll(ifstream& InFile); //cal the load function for each statement and connector
+  void LoadAll(ifstream& InFile); //cal the load function for each statement and connector
+	void ExitAct();
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart
 	Statement *GetStatement(Point P) const;	//Searches for a statement where point P belongs
@@ -52,7 +56,9 @@ public:
 	// Note: you should use the following 4 functions 
 	//       in order not to break class responsibilities (especially in copy, cut and paste)
 	Statement *GetSelectedStatement() const;	 //Returns the selected Statement
+	Connector* GetSelectedConnector() const;
 	void SetSelectedStatement(Statement *pStat); //Set the Statement selected by the user
+	void SetSelectedConnector(Connector* pConn); //Set the Connector selected by the user
 	Statement *GetClipboard() const;	         //Returns the Clipboard
 	void SetClipboard(Statement *pStat);         //Set the Clipboard
 
