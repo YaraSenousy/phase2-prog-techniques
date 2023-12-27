@@ -50,7 +50,7 @@ public:
 
 	///TODO: Add more functions if needed
 	virtual bool InStatement(Point p) = 0; //Check if a point is within the statement 
-
+	
 
 	int GetID();
 

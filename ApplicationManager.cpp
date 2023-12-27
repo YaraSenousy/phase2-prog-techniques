@@ -12,6 +12,7 @@
 #include "DelAction.h"
 #include "AddCond.h"
 #include "SaveAction.h"
+#include "Select_Unselect.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -70,7 +71,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case SELECT:
 			///create Select Action here
-
+			pAct = new Select_Unselect(this);
 			break;
 
 		case EXIT:
@@ -211,10 +212,10 @@ void ApplicationManager::AddConnector(Connector* pConn)
 Connector* ApplicationManager::GetConnector(Point P) const
 {
 	//loop on all connectors
-	for (int i{}; i++; i < ConnCount) {
+	for (int i{}; i < ConnCount; i++) {
 		//check if the point belong to a connector and return a pointer to it
-		if (ConnList[i]->IsConnector(P)) {
-			ConnList[i];
+		if (ConnList[i]->InConnector(P)) {
+			return ConnList[i];
 		}
 	}
 	return nullptr;
