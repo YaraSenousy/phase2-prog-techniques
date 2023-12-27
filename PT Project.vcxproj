@@ -283,6 +283,7 @@
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="DelAction.cpp" />
     <ClCompile Include="End.cpp" />
+    <ClCompile Include="ExitingAct.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
@@ -337,6 +338,7 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DelAction.h" />
     <ClInclude Include="End.h" />
+    <ClInclude Include="ExitingAct.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
