@@ -33,9 +33,10 @@ void DelAction::Execute()
 	ReadActionParameters();
 	if (stat != NULL) {
 		Point p(0, 0);
-		Condition* cond = dynamic_cast<Condition*>(stat);
-		if (cond)
+		if (stat->check ==2) {
+			Condition* cond = dynamic_cast<Condition*>(stat);
 			pManager->DeleteConnStat(cond->getOutlet_yesOrno(1), cond->getOutlet_yesOrno(2), cond->getInlet());
+		}
 		else
 			pManager->DeleteConnStat(stat->getOutlet(), p, stat->getInlet());
 		pManager->DeleteAction(stat);
