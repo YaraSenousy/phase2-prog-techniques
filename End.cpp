@@ -11,7 +11,6 @@ End::End(Point Lcorner)
 	LeftCorner = Lcorner;
 	Inlet.x = LeftCorner.x + UI.START_WDTH / 2;
 	Inlet.y = LeftCorner.y;
-	stat_type = ITM_END;
 }
 
 void End::Draw(Output* pOut) const
@@ -30,7 +29,7 @@ bool End::InStatement(Point p)
 
 void End::Save(ofstream& OutFile)
 {
-	OutFile << stat_type << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
+	OutFile << 2 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
 }
 
 void End::UpdateStatementText()

@@ -1,6 +1,7 @@
 #include "ValueAssign.h"
 #include <sstream>
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -10,7 +11,6 @@ ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS)
 	//       before passing it to the constructor of ValueAssign
 	LHS = LeftHS;
 	RHS = RightHS;
-	stat_type = ITM_VALUE_ASSIGN;
 
 	UpdateStatementText();
 
@@ -56,16 +56,13 @@ bool ValueAssign::InStatement(Point p)
 
 void ValueAssign::Save(ofstream& OutFile)
 {
-	OutFile << stat_type << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+	OutFile << 3 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
 }
 
 void ValueAssign::Load(ifstream& Infile)
 {
-	Infile >> ID;
-	Infile >> LeftCorner.x;
-	Infile >> LeftCorner.y;
-	Infile >> LHS;
-	Infile >> RHS;
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> RHS;
+	UpdateStatementText();
 }
 
 Point ValueAssign::getInlet()

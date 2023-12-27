@@ -8,7 +8,6 @@ Write::Write(Point Lcorner, string varName)
 	//set variabla name
 	VarOrString = varName;
 	UpdateStatementText();
-	stat_type = ITM_OUTPUT;
 
 	Leftcorner = Lcorner;
 	pOutConn = NULL; //No connector yet
@@ -42,7 +41,7 @@ bool Write::InStatement(Point p)
 
 void Write::Save(ofstream& OutFile)
 {
-	OutFile << "WRITE" << " " << ID << " " << Leftcorner.x << " " << Leftcorner.y << " " << VarOrString << endl;
+	OutFile << 8 << " " << ID << " " << Leftcorner.x << " " << Leftcorner.y << " " << VarOrString << endl;
 }
 
 void Write::UpdateStatementText() {

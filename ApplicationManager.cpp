@@ -70,6 +70,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case LOAD:
 			pAct = new LoadAction(this);
+			break;
 		case ADD_VALUE_ASSIGN:
 			pAct = new AddValueAssign(this);
 			break;
@@ -180,8 +181,8 @@ void ApplicationManager::SaveAll(ofstream& OutFile)
 void ApplicationManager::LoadAll(ifstream& InFile)
 {
 	//removing any statement or connector on the drawing area first
-	delete[] StatList;
-	delete[] ConnList;
+	//delete[] StatList;
+	//delete[] ConnList;
 	//reading from the file the number of statements
 	int s_count;
 	InFile >> s_count;
@@ -193,32 +194,33 @@ void ApplicationManager::LoadAll(ifstream& InFile)
 		//create new statement
 		switch (statement_type)
 		{
-		case ITM_START:
+		case 1:
 			pStat = new Start();
 			break;
-		case ITM_END:
+		case 2:
 			pStat = new End();
 			break;
-		case ITM_VALUE_ASSIGN:
+		case 3:
 			pStat = new ValueAssign();
 			break;
-		case ITM_VARIABLE_ASSIGN:
+		case 4:
 			pStat = new VariableAssign();
 			break;
-		case ITM_OPER_ASSIGN:
+		case 5:
 			pStat = new OperatorAssign();
 			break;
-		case ITM_COND:
+		case 6:
 			pStat = new Condition();
 			break;
-		case ITM_INPUT:
+		case 7:
 			pStat = new Read();
 			break;
-		case ITM_OUTPUT:
+		case 8:
 			pStat = new Write();
 			break;
 		}
 		pStat->Load(InFile);
+		AddStatement(pStat);
 	}
 }
 

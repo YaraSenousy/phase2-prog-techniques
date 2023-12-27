@@ -8,7 +8,6 @@ Read::Read(Point Lcorner, string varName)
 	//Variable name is validated before being sent to constructor
 	VarName = varName;
 	UpdateStatementText();
-	stat_type = ITM_INPUT;
 
 	Leftcorner = Lcorner;
 	pOutConn = NULL; //No connector yet
@@ -40,7 +39,7 @@ bool Read::InStatement(Point p)
 }
 void Read::Save(ofstream& OutFile)
 {
-	OutFile << stat_type << " " << ID <<" "<< Leftcorner.x << " " << Leftcorner.y << " " << VarName << endl;
+	OutFile << 7 << " " << ID <<" "<< Leftcorner.x << " " << Leftcorner.y << " " << VarName << endl;
 }
 void Read::UpdateStatementText() {
 	ostringstream T;

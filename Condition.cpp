@@ -10,7 +10,6 @@ Condition::Condition(Point corner,string left,string compop, string right, bool 
 	RHS = right;
 	UpdateStatementText();
 	Corner = corner;
-	stat_type = ITM_COND;
 
 	pOutConnYes = NULL; //no connector yet
 	pOutConnNo = NULL; //no connector yet
@@ -69,7 +68,7 @@ bool Condition::InStatement(Point p)
 
 void Condition::Save(ofstream& OutFile)
 {
-	OutFile << stat_type << " " << ID << " " << LHS << " " << CompOp << " " << RHS << endl;
+	OutFile << 6 << " " << ID << " " << LHS << " " << CompOp << " " << RHS << endl;
 }
 
 Point Condition::getOutlet_yesOrno(int branchtype)

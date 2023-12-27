@@ -14,7 +14,6 @@ protected:
 	static int count; //used to set a unique ID for each statement
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the folwchart
-	DesignMenuItem stat_type; //stores the type of each statement
 
 
 	Point Inlet;	//A point where connections enters this statement 
