@@ -12,6 +12,15 @@
 #include "DelAction.h"
 #include "AddCond.h"
 #include "SaveAction.h"
+#include "LoadAction.h"
+#include "Start.h"
+#include "End.h"
+#include "Write.h"
+#include "Read.h"
+#include "Condition.h"
+#include "statements\ValueAssign.h"
+#include "VariableAssign.h"
+#include "OperatorAssign.h"
 #include "Select_Unselect.h"
 #include "ExitingAct.h"
 
@@ -60,6 +69,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SAVE:
 			pAct = new SaveAction(this);
+			break;
+		case LOAD:
+			pAct = new LoadAction(this);
 			break;
 		case ADD_VALUE_ASSIGN:
 			pAct = new AddValueAssign(this);
@@ -186,6 +198,52 @@ void ApplicationManager::SaveAll(ofstream& OutFile)
 	}
 }
 
+void ApplicationManager::LoadAll(ifstream& InFile)
+{
+	//removing any statement or connector on the drawing area first
+	//delete[] StatList;
+	//delete[] ConnList;
+	//reading from the file the number of statements
+	int s_count;
+	InFile >> s_count;
+	Statement* pStat;
+	int statement_type;
+	for (int i{}; i < s_count; i++) {
+		//reads the statement type and creates an object
+		InFile >> statement_type;
+		//create new statement
+		switch (statement_type)
+		{
+		case 1:
+			pStat = new Start();
+			break;
+		case 2:
+			pStat = new End();
+			break;
+		case 3:
+			pStat = new ValueAssign();
+			break;
+		case 4:
+			pStat = new VariableAssign();
+			break;
+		case 5:
+			pStat = new OperatorAssign();
+			break;
+		case 6:
+			pStat = new Condition();
+			break;
+		case 7:
+			pStat = new Read();
+			break;
+		case 8:
+			pStat = new Write();
+			break;
+		}
+		pStat->Load(InFile);
+		AddStatement(pStat);
+	}
+}
+
 void ApplicationManager::ExitAct()
 {
 	/*
@@ -211,8 +269,6 @@ void ApplicationManager::ExitAct()
 	pOut->PrintMessage("Deleting input pointer you can no longer click :) ");
 	delete pIn;*/
 }
-
-
 //==================================================================================//
 //						Statements Management Functions								//
 //==================================================================================//

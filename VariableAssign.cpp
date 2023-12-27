@@ -58,8 +58,14 @@ bool VariableAssign::InStatement(Point p)
 
 void VariableAssign::Save(ofstream& OutFile)
 {
-	OutFile << "VAR_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+	OutFile << 4 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
 
+}
+
+void VariableAssign::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> RHS;
+	UpdateStatementText();
 }
 
 Point VariableAssign::getInlet()

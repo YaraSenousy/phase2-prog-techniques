@@ -24,6 +24,7 @@ ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS)
 	Outlet.y = LeftCorner.y + UI.ASSGN_HI;	
 }
 
+
 void ValueAssign::setLHS(const string &L)
 {
 	LHS = L;
@@ -54,7 +55,13 @@ bool ValueAssign::InStatement(Point p)
 
 void ValueAssign::Save(ofstream& OutFile)
 {
-	OutFile << "VALUE_ASSIGN" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+	OutFile << 3 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+}
+
+void ValueAssign::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> RHS;
+	UpdateStatementText();
 }
 
 Point ValueAssign::getInlet()

@@ -29,7 +29,13 @@ bool End::InStatement(Point p)
 
 void End::Save(ofstream& OutFile)
 {
-	OutFile << "END" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
+	OutFile << 2 << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
+}
+
+void End::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y;
+	UpdateStatementText();
 }
 
 void End::UpdateStatementText()
