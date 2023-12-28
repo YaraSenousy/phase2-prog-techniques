@@ -34,6 +34,7 @@ ApplicationManager::ApplicationManager()
 	StatCount = 0;
 	ConnCount = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
+	pSelectedConnector = NULL;
 	pClipboard = NULL;
 	
 	//Create an array of Statement pointers and set them to NULL		
