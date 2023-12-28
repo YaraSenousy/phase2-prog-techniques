@@ -38,6 +38,8 @@ void Start::Save(ofstream& OutFile)
 void Start::Load(ifstream& Infile)
 {
 	Infile >> ID >> LeftCorner.x >> LeftCorner.y;
+	Outlet.x = LeftCorner.x + UI.START_WDTH / 2;
+	Outlet.y = LeftCorner.y + UI.START_HI;
 	UpdateStatementText();
 }
 
