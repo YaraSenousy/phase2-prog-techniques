@@ -15,7 +15,7 @@ private:
 	Point End;		//End point of the connector
 	int Outlet_branch; //for conditonal statements 1:YES 2:No 3:otherwisw
 
-	bool Selected; // true if the connector is selected 
+	bool Selected = false; // connector is initially not selected
 public:
 	Connector(Statement* Src, Statement* Dst, int branchtype);
 

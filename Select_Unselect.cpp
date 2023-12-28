@@ -30,20 +30,51 @@ void Select_Unselect::Execute()
 {	
 	ReadActionParameters();
 
+	//checks if there is a selected statement
 	if (pManager->GetSelectedStatement()) {
-		(pManager->GetSelectedStatement())->SetSelected(false);
-		pManager->SetSelectedStatement(NULL);
-	}
-	if (pManager->GetSelectedConnector()) {
-		(pManager->GetSelectedConnector()->SetSelected(false));
-		pManager->SetSelectedConnector(NULL);
-	}
-		if (statement) {
-			statement->SetSelected(!(statement->IsSelected()));
-			pManager->SetSelectedStatement(statement);
+		// deselects if reclicked
+		if (pManager->GetSelectedStatement() == statement) {
+			pManager->SetSelectedStatement(NULL);
 		}
+		//deselcts previously selected statement
+		else {
+			pManager->GetSelectedStatement()->SetSelected(false);
+			pManager->SetSelectedStatement(NULL);
+		}
+	}
+
+	//checks if there is a selected connector
+	if (pManager->GetSelectedConnector()) {
+		// deselcts if reclicked
+		if (pManager->GetSelectedConnector() == connector) {
+			pManager->SetSelectedConnector(NULL);
+		}
+		//deselects previously selected connector
+		else {
+			pManager->GetSelectedConnector()->SetSelected(false);
+			pManager->SetSelectedConnector(NULL);
+		}
+	}
+	//select or unselect clicked statement
+		if (statement) {
+			if (statement->IsSelected()==true) {
+				statement->SetSelected(false);
+				pManager->SetSelectedStatement(NULL);
+			}
+			else {
+				statement->SetSelected(true);
+				pManager->SetSelectedStatement(statement);
+			}
+		}
+	//select or unselect clicked connector
 		else if (connector) {
-			connector->SetSelected(!(connector->IsSelected()));
-			pManager->SetSelectedConnector(connector);
+			if (connector->IsSelected()==true) {
+				connector->SetSelected(false);
+				pManager->SetSelectedConnector(NULL);
+			}
+			else {
+				connector->SetSelected(true);
+				pManager->SetSelectedConnector(connector);
+			}
 		}	
 }
