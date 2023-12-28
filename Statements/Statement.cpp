@@ -4,6 +4,7 @@ int Statement::count = 0;
 Statement::Statement()	
 { 
 	//TODO: set the ID with a unique value
+	pOutConn = NULL;
 	count++;
 	ID = count;
 	Text = "";
