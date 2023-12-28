@@ -42,9 +42,7 @@ public:
 	void DeleteConnStat(Point Pout1,Point Pout2,Point Pin);
 	void DeleteConn(Connector* Conn);
 	void SaveAll(ofstream& OutFile); //call Save function for each statement and connector
-
-	Statement* GetStatementWithID(int id); //takes an ID and return pointer to statement
-
+	void LoadAll(ifstream& InFile); //cal the load function for each statement and connector
 	void ExitAct();
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart
@@ -68,7 +66,6 @@ public:
 	Input *GetInput() const;        //Return pointer to the input
 	Output *GetOutput() const;      //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window
-	void ClearStatAndConn(); //removing everything from the drawing window
 	
 };
 
