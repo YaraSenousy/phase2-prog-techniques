@@ -26,6 +26,7 @@ ApplicationManager::ApplicationManager()
 	StatCount = 0;
 	ConnCount = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
+	pSelectedConnector = NULL;
 	pClipboard = NULL;
 	
 	//Create an array of Statement pointers and set them to NULL		
@@ -202,28 +203,6 @@ Statement* ApplicationManager::GetStatementWithID(int id)
 
 void ApplicationManager::ExitAct()
 {
-	/*
-	pOut->ClearStatusBar();
-	pOut->PrintMessage("Deleting all statements");
-	for (int i = 0; i < StatCount; i++) {
-		delete StatList[i];
-	}
-	StatList[0] = NULL;
-	UpdateInterface();
-	pIn->GetUserAction();
-	pOut->ClearStatusBar();
-	pOut->PrintMessage("Deleting all connectors");
-	for (int i = 0; i < ConnCount; i++) {
-		delete ConnList[i];
-	}
-	ConnList[0] = NULL;
-	UpdateInterface();
-	pIn->GetUserAction();
-	pOut->ClearStatusBar();
-	pOut->PrintMessage("CLick to delete input pointer");
-	pIn->GetUserAction();
-	pOut->PrintMessage("Deleting input pointer you can no longer click :) ");
-	delete pIn;*/
 }
 //==================================================================================//
 //						Statements Management Functions								//

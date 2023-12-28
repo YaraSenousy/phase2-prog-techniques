@@ -34,7 +34,7 @@ void Select_Unselect::Execute()
 		(pManager->GetSelectedStatement())->SetSelected(false);
 		pManager->SetSelectedStatement(NULL);
 	}
-	if (pManager->GetSelectedStatement()) {
+	if (pManager->GetSelectedConnector()) {
 		(pManager->GetSelectedConnector()->SetSelected(false));
 		pManager->SetSelectedConnector(NULL);
 	}
@@ -42,7 +42,7 @@ void Select_Unselect::Execute()
 			statement->SetSelected(!(statement->IsSelected()));
 			pManager->SetSelectedStatement(statement);
 		}
-		else if (connector) {
+		if (connector) {
 			connector->SetSelected(!(connector->IsSelected()));
 			pManager->SetSelectedConnector(connector);
 		}	

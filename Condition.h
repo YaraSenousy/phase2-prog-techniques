@@ -30,6 +30,8 @@ public:
 	virtual void Save(ofstream& OutFile);
 	void Load(ifstream& Infile);
 	Point getOutlet_yesOrno(int branchtype);
+	Connector* getpConnOut(int branchtype); //checks branchtype and gets correct connector
+	virtual void SetpConnOut(Connector* conn,int branchtype); //checks branchtype and sets correct connector
 
 };
 #endif

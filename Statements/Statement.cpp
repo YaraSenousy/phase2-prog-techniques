@@ -4,6 +4,7 @@ int Statement::count = 0;
 Statement::Statement()	
 { 
 	//TODO: set the ID with a unique value
+	pOutConn = NULL;
 	count++;
 	ID = count;
 	Text = "";
@@ -27,6 +28,18 @@ Point Statement::getOutlet()
 {
 	return Outlet;
 }
+
+Connector* Statement::GetConnOut()
+{
+	return pOutConn;
+}
+
+void Statement::SetpConnOut(Connector* conn)
+{
+	pOutConn = conn;
+}
+
+
 
 int Statement::GetID()
 {
