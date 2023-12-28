@@ -3,7 +3,7 @@
 
 #include "Actions/Action.h"
 #include "End.h"
-
+static int endcount = 0;
 
 class AddEnd: public Action
 {

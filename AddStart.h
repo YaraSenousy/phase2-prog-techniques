@@ -3,6 +3,7 @@
 
 #include "Actions/Action.h"
 #include "Start.h"
+static int startcount =0;
 
 class AddStart:public Action
 {
