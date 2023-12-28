@@ -25,6 +25,7 @@
 #include "ExitingAct.h"
 #include "Copy.h"
 #include "paste.h"
+#include "switchtosim_des.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -125,6 +126,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case PASTE:
 			pAct = new paste(this);
+
+		case SWITCH_DSN_MODE:
+			pAct = new switchtosim_des(this);
+
+		case SWITCH_SIM_MODE:
+			pAct = new switchtosim_des(this);
 	}
 	
 	//Execute the created action
