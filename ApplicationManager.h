@@ -42,7 +42,7 @@ public:
 	void DeleteConnStat(Point Pout1,Point Pout2,Point Pin);
 	void DeleteConn(Connector* Conn);
 	void SaveAll(ofstream& OutFile); //call Save function for each statement and connector
-  void LoadAll(ifstream& InFile); //cal the load function for each statement and connector
+	void LoadAll(ifstream& InFile); //cal the load function for each statement and connector
 	void ExitAct();
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart

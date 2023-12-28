@@ -28,6 +28,18 @@ Point Statement::getOutlet()
 	return Outlet;
 }
 
+Connector* Statement::GetConnOut()
+{
+	return pOutConn;
+}
+
+void Statement::SetpConnOut(Connector* conn)
+{
+	pOutConn = conn;
+}
+
+
+
 int Statement::GetID()
 {
 	return ID;
