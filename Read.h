@@ -11,7 +11,7 @@ private:
 	void UpdateStatementText();
 
 public:
-	Read(Point Lcorner, string varName);
+	Read(Point Lcorner, string varName= " ");
 	void setVarName(const string& var);
 	void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);

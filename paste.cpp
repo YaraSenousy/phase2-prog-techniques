@@ -5,34 +5,83 @@ paste::paste(ApplicationManager* pAppManager): Action(pAppManager)
 
 void paste::ReadActionParameters()
 {
-	if (pManager->GetClipboard() != NULL)
-	{
-		Input* pIn = pManager->GetInput();
-		Output* pOut = pManager->GetOutput();
+	Input* pIn = pManager->GetInput();
+	Output* pOut = pManager->GetOutput();
 
-		pOut->PrintMessage("Click where you want to copy. Click anywhere to continue. ");
-		pIn->GetPointClicked(position);
-		pOut->ClearStatusBar();
+	pOut->PrintMessage("Click where you want to paste. Click anywhere to continue. ");
+	pIn->GetPointClicked(position);
+	pOut->ClearStatusBar();
 
-
-	}
-	else
-	{
-		Output* pOut = pManager->GetOutput();
-		pOut->PrintMessage("No items to paste. Click anywhere to continue.");
-		pOut->ClearStatusBar();
-	}
 }
 
 void paste::Execute()
 {
-	ReadActionParameters();
 	Statement* ToCopy = pManager->GetClipboard();
-
-	if (dynamic_cast<Start*>(ToCopy) != NULL)
+	if (ToCopy != NULL)
 	{
-		Start* pAssign = new Start(position);
+		ReadActionParameters();
+		Statement* ptr;
 
-		pManager->AddStatement(pAssign); // Adds the created statement to application manger's statement list
+		if (dynamic_cast<Start*>(ToCopy))
+		{
+			ptr = new Start(position);
+		}
+		else if (dynamic_cast<End*>(ToCopy) != NULL)
+		{
+			ptr = new End(position);
+
+			
+		}
+		else if (dynamic_cast<ValueAssign*>(ToCopy) != NULL)
+		{
+			
+			ptr = new ValueAssign(position);
+			*ptr = *ToCopy;
+
+			
+		}
+		else if (dynamic_cast<VariableAssign*>(ToCopy) != NULL)
+		{
+			ptr = new VariableAssign(position);
+			*ptr = *ToCopy;
+			
+		}
+		else if (dynamic_cast<OperatorAssign*>(ToCopy) != NULL)
+		{
+			ptr = new OperatorAssign(position);
+			*ptr = *ToCopy;
+			
+		}
+		else if (dynamic_cast<Condition*>(ToCopy) != NULL)
+		{
+			ptr = new Condition(position);
+			*ptr = *ToCopy;
+		}
+		else if (dynamic_cast<Read*>(ToCopy) != NULL)
+		{
+			ptr = new Read(position);
+			*ptr = *ToCopy;
+		}
+		else if (dynamic_cast<Write*>(ToCopy) != NULL)
+		{
+			ptr = new Write(position);
+			*ptr = *ToCopy;
+		}
+		pManager->AddStatement(ptr);
+
+		
+
+
+
 	}
+
+	else
+	{
+		Output* pOut = pManager->GetOutput();
+		pOut->PrintMessage("No items to paste. Click anywhere to continue.");
+		
+	}
+	
+	
+
 }

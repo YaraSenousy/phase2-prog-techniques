@@ -14,6 +14,8 @@
 #include "SaveAction.h"
 #include "Select_Unselect.h"
 #include "ExitingAct.h"
+#include "Copy.h"
+#include "paste.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -105,6 +107,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_CONNECTOR:
 			pAct = new AddConn(this);
 			break;
+		case COPY:
+			pAct = new Copy(this);
+			break;
+		case PASTE:
+			pAct = new paste(this);
 	}
 	
 	//Execute the created action

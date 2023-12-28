@@ -18,7 +18,7 @@ private:
 	void UpdateStatementText();
 
 public:
-	Condition(Point corner, string left,string compop, string right, bool isval);
+	Condition(Point corner, string left = " ", string compop= " ", string right= " ", bool isval= true);
 
 	void setLHS(const string& left);
 	void setCompOp(const string& compop);

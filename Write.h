@@ -10,7 +10,7 @@ private:
 	void UpdateStatementText();
 
 public:
-	Write(Point Lcorner, string varName);
+	Write(Point Lcorner, string varName = " ");
 	void setVarName(const string& var);
 	void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
