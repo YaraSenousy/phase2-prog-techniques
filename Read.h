@@ -12,6 +12,7 @@ private:
 
 public:
 	Read(Point Lcorner = Point(-1,-1), string varName = "");
+
 	void setVarName(const string& var);
 	void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);

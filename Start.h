@@ -12,6 +12,7 @@ private:
 	
 	Connector* pOutConn;     //Start Assignment Stat. has one Connector to next statement
 	Point LeftCorner;       //left corenr of the statement block.
+	
 
 	virtual void UpdateStatementText();
 

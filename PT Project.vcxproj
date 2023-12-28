@@ -281,6 +281,7 @@
     </ClCompile>
     <ClCompile Include="Condition.cpp" />
     <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="Copy.cpp" />
     <ClCompile Include="DelAction.cpp" />
     <ClCompile Include="End.cpp" />
     <ClCompile Include="ExitingAct.cpp" />
@@ -289,6 +290,7 @@
     <ClCompile Include="HelperFn.cpp" />
     <ClCompile Include="LoadAction.cpp" />
     <ClCompile Include="OperatorAssign.cpp" />
+    <ClCompile Include="paste.cpp" />
     <ClCompile Include="SaveAction.cpp" />
     <ClCompile Include="Select_Unselect.cpp" />
     <ClCompile Include="Start.cpp" />
@@ -336,6 +338,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Condition.h" />
     <ClInclude Include="Connector.h" />
+    <ClInclude Include="Copy.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DelAction.h" />
     <ClInclude Include="End.h" />
@@ -346,6 +349,7 @@
     <ClInclude Include="HelperFn.h" />
     <ClInclude Include="LoadAction.h" />
     <ClInclude Include="OperatorAssign.h" />
+    <ClInclude Include="paste.h" />
     <ClInclude Include="SaveAction.h" />
     <ClInclude Include="Select_Unselect.h" />
     <ClInclude Include="Start.h" />

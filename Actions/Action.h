@@ -7,7 +7,7 @@ class Input;
 class Output;
 
 #include "..\GUI\UI_Info.h"
-
+#include "../ApplicationManager.h"
 
 //Base class for all possible actions
 class Action
