@@ -1,9 +1,10 @@
 #ifndef CONNECTOR_H
 #define CONNECTOR_H
-
+//#include "ApplicationManager.h"
 #include "GUI\UI_Info.h"
 #include "GUI\output.h"
 #include <fstream>
+class ApplicationManager;
 class Statement;
 
 class Connector	//a connector that connects two statements (Source & Destination)
@@ -17,23 +18,24 @@ private:
 
 	bool Selected; // true if the connector is selected 
 public:
-	Connector(Statement* Src, Statement* Dst, int branchtype);
+	Connector(Statement* Src = NULL, Statement* Dst = NULL, int branchtype = 0);
 
 	void		setSrcStat(Statement *Src);
 	Statement*	getSrcStat();	
 	void		setDstStat(Statement *Dst);
 	Statement*	getDstStat();
 
-	void setStartPoint(Point P);
+	void setStartPoint();
 	Point getStartPoint();
 
-	void setEndPoint(Point P);
+	void setEndPoint();
 	Point getEndPoint();
 
 	void Draw(Output* pOut) const;
 	bool InConnector(Point p);
 	bool IsSelected();
 	void Save(ofstream& OutFile);
+	void Load(ifstream& InFile,ApplicationManager* pManager);
 	void SetSelected(bool s);
 };
 
