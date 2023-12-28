@@ -44,6 +44,7 @@ public:
 	void SaveAll(ofstream& OutFile); //call Save function for each statement and connector
 	Statement* GetStatementWithID(int id); //takes an ID and return pointer to statement
 	void ExitAct();
+	int validateAct(); //make sure there is no statements without output connector
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart
 	Statement *GetStatement(Point P) const;	//Searches for a statement where point P belongs

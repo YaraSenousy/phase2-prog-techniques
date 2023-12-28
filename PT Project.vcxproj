@@ -302,6 +302,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="switchtosim_des.cpp" />
+    <ClCompile Include="validate.cpp" />
     <ClCompile Include="VariableAssign.cpp" />
     <ClCompile Include="Write.cpp" />
   </ItemGroup>
@@ -358,6 +359,7 @@
     <ClInclude Include="Statements\ValueAssign.h" />
     <ClInclude Include="Statements\Statement.h" />
     <ClInclude Include="switchtosim_des.h" />
+    <ClInclude Include="validate.h" />
     <ClInclude Include="VariableAssign.h" />
     <ClInclude Include="Write.h" />
   </ItemGroup>

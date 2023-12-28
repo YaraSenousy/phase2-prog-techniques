@@ -46,9 +46,11 @@ void AddConn::ReadActionParameters()
 			start_stat = NULL;
 			
 	}
-	else if (start_stat->GetConnOut() != NULL)
-		start_stat = NULL;
-		
+	//make sure each statement has one/two output connector
+	if (start_stat) {
+		if (start_stat->GetConnOut() != NULL)
+			start_stat = NULL;
+	}
 
 	//read end_stat from user
 	pOut->PrintMessage("Select the second statement");
@@ -70,7 +72,13 @@ void AddConn::Execute()
 		//setting the start and end point
 		pConn->setStartPoint();
 		pConn->setEndPoint();
-
+		//setting the pointer in start statement
+		if (dynamic_cast<Condition*>(start_stat)) {
+			Condition* cond = dynamic_cast<Condition*>(start_stat);
+			cond->SetpConnOut(pConn, Outlet_branch);
+		}
+		else
+			start_stat->SetpConnOut(pConn);
 		//Create and add a connector to application managers's connector list
 		pManager->AddConnector(pConn);
 	}

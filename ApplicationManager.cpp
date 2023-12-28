@@ -18,6 +18,7 @@
 #include "Copy.h"
 #include "paste.h"
 #include "switchtosim_des.h"
+#include "validate.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -118,12 +119,16 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case PASTE:
 			pAct = new paste(this);
-
+			break;
 		case SWITCH_DSN_MODE:
 			pAct = new switchtosim_des(this);
-
+			break;
 		case SWITCH_SIM_MODE:
 			pAct = new switchtosim_des(this);
+			break;
+		case VALIDATE:
+			pAct = new validate(this);
+			break;
 	}
 	
 	//Execute the created action
@@ -215,6 +220,41 @@ Statement* ApplicationManager::GetStatementWithID(int id)
 }
 void ApplicationManager::ExitAct()
 {
+}
+int ApplicationManager::validateAct()
+{
+	int cont_start = 0;
+	int count_end = 0;
+	for (int i{}; i < StatCount; i++) {
+		if (dynamic_cast<Start*>(StatList[i]))
+			cont_start++;
+
+		if (dynamic_cast<End*>(StatList[i])) {
+			count_end++;
+		}
+		if (dynamic_cast<Condition*>(StatList[i])) {
+			Condition* cond = dynamic_cast<Condition*>(StatList[i]);
+			if (cond->getpConnOut(1) == NULL || cond->getpConnOut(2) == NULL) {
+				return 1;
+			}
+		}
+		else if (dynamic_cast<End*>(StatList[i]) == NULL) {
+			if (StatList[i]->GetConnOut() == NULL)
+				return 1;
+		}
+	}
+	if (cont_start == 0) {
+		return 2;
+	}
+	if (cont_start > 1) {
+		return 3;
+	}
+	if (count_end == 0) {
+		return 4;
+	}
+	if (count_end > 1) {
+		return 5;
+	}
 }
 //==================================================================================//
 //						Statements Management Functions								//
