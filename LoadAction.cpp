@@ -42,6 +42,9 @@ void LoadAction::Execute()
 	//check that the file exists
 	if (Infile.is_open())
 	{
+		//removing all statements and connectors from the drawing area
+		pManager->ClearStatAndConn();
+		//reading from the file the number of statements
 		int s_count;
 		Infile >> s_count;
 		Statement* pStat;
@@ -82,17 +85,18 @@ void LoadAction::Execute()
 			//add statement to the StatList
 			pManager->AddStatement(pStat);
 		}
+		//reading the number of connectors
+		int c_count;
+		Infile >> c_count;
+		Connector* pConn;
+		for (int i{}; i < c_count; i++) {
+			//creating the new connector
+			pConn = new Connector();
+			//callign the load function on the connector
+			pConn->Load(Infile,pManager);
+			//adding the connector to the ConnList
+			pManager->AddConnector(pConn);
+		}
 		Infile.close();
 	}
-
-	/*
-	* void ApplicationManager::LoadAll(ifstream& InFile)
-{
-	//removing any statement or connector on the drawing area first
-	//delete[] StatList;
-	//delete[] ConnList;
-	//reading from the file the number of statements
-	
-}
-	*/
 }

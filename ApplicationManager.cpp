@@ -190,6 +190,15 @@ void ApplicationManager::SaveAll(ofstream& OutFile)
 	}
 }
 
+Statement* ApplicationManager::GetStatementWithID(int id)
+{
+	for (int i{}; i < StatCount; i++) {
+		if (StatList[i]->GetID() == id)
+			return StatList[i];
+	}
+	return nullptr;
+}
+
 
 void ApplicationManager::ExitAct()
 {
@@ -319,6 +328,16 @@ void ApplicationManager::UpdateInterface() const
 		for (int i = 0; i < ConnCount; i++)
 			ConnList[i]->Draw(pOut);
 	}
+}
+void ApplicationManager::ClearStatAndConn()
+{
+	//removing anything in the drawing area
+	for (int i = 0; i < StatCount; i++)
+		delete StatList[i];
+	for (int i = 0; i < ConnCount; i++)
+		delete ConnList[i];
+	StatCount = 0;
+	ConnCount = 0;
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input

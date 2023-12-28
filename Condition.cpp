@@ -15,7 +15,6 @@ Condition::Condition(Point corner,string left,string compop, string right, bool 
 	pOutConnYes = NULL; //no connector yet
 	pOutConnNo = NULL; //no connector yet
 
-	//need to change after connector draw is added
 	Inlet.x = Corner.x + UI.COND_WIDTH /2; 
 	Inlet.y = Corner.y - UI.COND_HI/2;
 
@@ -75,6 +74,14 @@ void Condition::Save(ofstream& OutFile)
 void Condition::Load(ifstream& Infile)
 {
 	Infile >> ID >>Corner.x>>Corner.y >> LHS >> CompOp >> RHS;
+	Inlet.x = Corner.x + UI.COND_WIDTH / 2;
+	Inlet.y = Corner.y - UI.COND_HI / 2;
+
+	OutletYes.x = Corner.x + UI.COND_WIDTH;
+	OutletYes.y = Corner.y;
+
+	OutletNo.x = Corner.x;
+	OutletNo.y = Corner.y;
 	UpdateStatementText();
 }
 

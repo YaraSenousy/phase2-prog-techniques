@@ -1,6 +1,8 @@
 #include "Connector.h"
 #include "Condition.h"
 #include "statements/Statement.h"
+#include "ApplicationManager.h"
+
 Connector::Connector(Statement* Src, Statement* Dst,int branchtype)	
 //When a connector is created, it must have a source statement and a destination statement
 //There are NO FREE connectors in the flowchart
@@ -80,4 +82,20 @@ bool Connector::InConnector(Point p)
 void Connector::Save(ofstream& OutFile)
 {
 	OutFile << SrcStat->GetID() << " " << DstStat->GetID() << " " << Outlet_branch << endl;
+}
+
+void Connector::Load(ifstream& InFile, ApplicationManager* pManager)
+{
+	int source_id;
+	int target_id;
+	//reading the source statement and target statement ids and the branch type
+	InFile >> source_id >> target_id >> Outlet_branch;
+	//getting the source statement
+	SrcStat = pManager->GetStatementWithID(source_id);
+	//getting the destination statement
+	DstStat = pManager->GetStatementWithID(target_id);
+	//setting the start point
+	setStartPoint();
+	//setting the end point
+	setEndPoint();
 }
