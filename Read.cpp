@@ -44,6 +44,11 @@ void Read::Save(ofstream& OutFile)
 void Read::Load(ifstream& Infile)
 {
 	Infile >> ID >> Leftcorner.x >> Leftcorner.y >> VarName;
+	Inlet.x = Leftcorner.x + UI.IO_WDTH / 2;
+	Inlet.y = Leftcorner.y;
+
+	Outlet.x = Inlet.x;
+	Outlet.y = Leftcorner.y + UI.IO_HI;
 	UpdateStatementText();
 }
 void Read::UpdateStatementText() {

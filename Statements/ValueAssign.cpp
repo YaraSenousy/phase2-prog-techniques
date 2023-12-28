@@ -61,6 +61,11 @@ void ValueAssign::Save(ofstream& OutFile)
 void ValueAssign::Load(ifstream& Infile)
 {
 	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> RHS;
+	Inlet.x = LeftCorner.x + UI.ASSGN_WDTH / 2;
+	Inlet.y = LeftCorner.y;
+
+	Outlet.x = Inlet.x;
+	Outlet.y = LeftCorner.y + UI.ASSGN_HI;
 	UpdateStatementText();
 }
 

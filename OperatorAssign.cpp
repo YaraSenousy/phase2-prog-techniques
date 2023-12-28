@@ -76,5 +76,10 @@ void OperatorAssign::Save(ofstream& OutFile)
 void OperatorAssign::Load(ifstream& Infile)
 {
 	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> RHS1 >> opp >> RHS2;
+	Inlet.x = LeftCorner.x + UI.ASSGN_WDTH / 2;
+	Inlet.y = LeftCorner.y;
+
+	Outlet.x = Inlet.x;
+	Outlet.y = LeftCorner.y + UI.ASSGN_HI;
 	UpdateStatementText();
 }
