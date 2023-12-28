@@ -1,4 +1,5 @@
 #include "Connector.h"
+#include "Condition.h"
 #include "statements/Statement.h"
 Connector::Connector(Statement* Src, Statement* Dst,int branchtype)	
 //When a connector is created, it must have a source statement and a destination statement
@@ -35,23 +36,31 @@ Statement* Connector::getDstStat()
 {	return DstStat;	}
 
 
-void Connector::setStartPoint(Point P)
-{	Start = P;	}
+void Connector::setStartPoint()
+{
+	if (Outlet_branch != 0) {  //yes or no branch
+		//casting the statement to condition
+		Condition* cond = dynamic_cast<Condition*>(SrcStat);
+		//setting the start point to draw the connector to Yes or No point
+		Start = cond->getOutlet_yesOrno(Outlet_branch);
+	}
+	else
+		Start = SrcStat->getOutlet();
+}
 
 Point Connector::getStartPoint()
 {	return Start;	}
 
-void Connector::setEndPoint(Point P)
-{	End = P;	}
+void Connector::setEndPoint()
+{
+	End = DstStat->getInlet();
+}
 
 Point Connector::getEndPoint()
 {	return End;	}
 
 void Connector::Draw(Output* pOut) const
 {
-	///TODO: Call Output to draw a connector from SrcStat to DstStat on the output window
-	//setStartPoint(SrcStat->getOutlet()); 
-	//setEndPoint(DstStat->getInlet());
 	pOut->DrawConnector(Start, End, Selected);
 }
 

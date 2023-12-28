@@ -24,10 +24,10 @@ public:
 	void		setDstStat(Statement *Dst);
 	Statement*	getDstStat();
 
-	void setStartPoint(Point P);
+	void setStartPoint();
 	Point getStartPoint();
 
-	void setEndPoint(Point P);
+	void setEndPoint();
 	Point getEndPoint();
 
 	void Draw(Output* pOut) const;

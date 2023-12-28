@@ -60,17 +60,8 @@ void AddConn::Execute()
 	if (start_stat && end_stat) {
 		Connector* pConn = new Connector(start_stat, end_stat,Outlet_branch);
 		//setting the start and end point
-		if (Outlet_branch != 0) {  //yes or no branch
-			//casting the statement to condition
-			Condition* cond = dynamic_cast<Condition*>(start_stat);
-			//setting the start point to draw the connector to Yes or No point
-			pConn->setStartPoint(cond->getOutlet_yesOrno(Outlet_branch));
-		}
-		else
-			pConn->setStartPoint(start_stat->getOutlet());
-		
-
-		pConn->setEndPoint(end_stat->getInlet());
+		pConn->setStartPoint();
+		pConn->setEndPoint();
 		//Create and add a connector to application managers's connector list
 		pManager->AddConnector(pConn);
 	}
