@@ -142,6 +142,11 @@ void ApplicationManager::DeleteAction(Statement*statd)
 
 void ApplicationManager::DeleteConnStat(Point Pout1, Point Pout2, Point Pin)
 {
+	for (int i = 0; i < StatCount; i++) {
+		for (int j = 0; j < ConnCount; j++) {
+			if (StatList[i]->getOutlet()==ConnList[j]->getStartPoint())
+		}
+	}
 	for (int i = 0; i < ConnCount; i++) {
 		if (Pout1.x == ConnList[i]->getStartPoint().x && Pout1.y == ConnList[i]->getStartPoint().y) {
 			delete ConnList[i];
