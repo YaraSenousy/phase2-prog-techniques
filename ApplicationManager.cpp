@@ -25,6 +25,7 @@ ApplicationManager::ApplicationManager()
 	ConnCount = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
 	pClipboard = NULL;
+	pSelectedConnector = NULL; //no Connector is selected yet
 	
 	//Create an array of Statement pointers and set them to NULL		
 	for(int i=0; i<MaxCount; i++)
