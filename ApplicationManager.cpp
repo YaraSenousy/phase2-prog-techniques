@@ -128,27 +128,25 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	}
 }
 
-void ApplicationManager::DeleteAction(Statement*statd)
-{
-	for (int i = 0; i < StatCount; i++) {
-		if (StatList[i] == statd) {
-			delete StatList[i];
-			StatList[i] = StatList[StatCount - 1];
-			StatList[StatCount - 1] = NULL;
-			StatCount--;
-		}
-	}
-}
+
 
 void ApplicationManager::DeleteConnStat(Point Pout1, Point Pout2, Point Pin)
 {
 	for (int i = 0; i < StatCount; i++) {
 		for (int j = 0; j < ConnCount; j++) {
-			if (StatList[i]->getOutlet()==ConnList[j]->getStartPoint())
+			bool IsOutletEqualStart = StatList[i]->getOutlet() == ConnList[j]->getStartPoint();
+			bool IsInletEqualEnd = Pin == ConnList[j]->getEndPoint();
+			if (IsOutletEqualStart&& IsInletEqualEnd) {
+				if (StatList[i]->check == 2) {
+					Condition* cond = dynamic_cast<Condition*>(StatList[i]);
+					cond->SetpConnOut(NULL,1);
+				}
+			}
+				
 		}
 	}
 	for (int i = 0; i < ConnCount; i++) {
-		if (Pout1.x == ConnList[i]->getStartPoint().x && Pout1.y == ConnList[i]->getStartPoint().y) {
+		if (Pout1 == ConnList[i]->getStartPoint()) {
 			delete ConnList[i];
 			ConnList[i] = ConnList[ConnCount - 1];
 			ConnList[ConnCount - 1] = NULL;
@@ -157,7 +155,7 @@ void ApplicationManager::DeleteConnStat(Point Pout1, Point Pout2, Point Pin)
 	}
 	for (int i = 0; i < ConnCount; i++) {
 		if (Pout2.x != 0 && Pout2.y != 0) {
-			if (Pout2.x == ConnList[i]->getStartPoint().x && Pout2.y == ConnList[i]->getStartPoint().y) {
+			if (Pout2 == ConnList[i]->getStartPoint()) {
 				delete ConnList[i];
 				ConnList[i] = ConnList[ConnCount - 1];
 				ConnList[ConnCount - 1] = NULL;
@@ -183,6 +181,17 @@ void ApplicationManager::DeleteConn(Connector* Conn)
 			ConnList[i] = ConnList[ConnCount - 1];
 			ConnList[ConnCount - 1] = NULL;
 			ConnCount--;
+		}
+	}
+}
+void ApplicationManager::DeleteAction(Statement* statd)
+{
+	for (int i = 0; i < StatCount; i++) {
+		if (StatList[i] == statd) {
+			delete StatList[i];
+			StatList[i] = StatList[StatCount - 1];
+			StatList[StatCount - 1] = NULL;
+			StatCount--;
 		}
 	}
 }
