@@ -288,6 +288,7 @@
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
+    <ClCompile Include="LoadAction.cpp" />
     <ClCompile Include="OperatorAssign.cpp" />
     <ClCompile Include="paste.cpp" />
     <ClCompile Include="SaveAction.cpp" />
@@ -346,6 +347,7 @@
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="HelperFn.h" />
+    <ClInclude Include="LoadAction.h" />
     <ClInclude Include="OperatorAssign.h" />
     <ClInclude Include="paste.h" />
     <ClInclude Include="SaveAction.h" />

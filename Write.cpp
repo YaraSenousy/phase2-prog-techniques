@@ -41,7 +41,13 @@ bool Write::InStatement(Point p)
 
 void Write::Save(ofstream& OutFile)
 {
-	OutFile << "WRITE" << " " << ID << " " << Leftcorner.x << " " << Leftcorner.y << " " << VarOrString << endl;
+	OutFile << 8 << " " << ID << " " << Leftcorner.x << " " << Leftcorner.y << " " << VarOrString << endl;
+}
+
+void Write::Load(ifstream& Infile)
+{
+	Infile >> ID >> Leftcorner.x >> Leftcorner.y >> VarOrString;
+	UpdateStatementText();
 }
 
 void Write::UpdateStatementText() {

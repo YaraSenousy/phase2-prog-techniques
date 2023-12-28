@@ -9,12 +9,16 @@
 //Base class for all Statements
 class Statement
 {
+	
 protected:
+	
 	int ID;			//Each Statement has an ID --> must be unique
 	static int count; //used to set a unique ID for each statement
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the folwchart
 
+	Connector* pOutConn;//pointer to connector out of the statement
+	
 
 	Point Inlet;	//A point where connections enters this statement 
 	//It's used as the (End) point of the (Input) connectors
@@ -39,8 +43,8 @@ public:
 	///		It should then be overridden by each derived Statement
 	///		Decide the parameters that you should pass to each function and its return type
 
-	virtual void Save(ofstream& OutFile) {};	//Save the Statement parameters to a file
-	//virtual void Load(ifstream &Infile) = 0;	//Load the Statement parameters from a file
+	virtual void Save(ofstream& OutFile) = 0;	//Save the Statement parameters to a file
+	virtual void Load(ifstream& Infile) {};	//Load the Statement parameters from a file
 
 	//virtual void Edit() = 0;		//Edit the Statement parameter
 
@@ -50,7 +54,9 @@ public:
 
 
 	///TODO: Add more functions if needed
-	virtual bool InStatement(Point p) = 0; //Check if a point is within the statement 
+	virtual bool InStatement(Point p) = 0; //Check if a point is within the statement
+	Connector* GetConnOut(); //getter for out connector
+	virtual void SetpConnOut(Connector*conn); //setter for out connector
 	
 
 	int GetID();

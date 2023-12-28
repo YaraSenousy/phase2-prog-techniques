@@ -20,7 +20,7 @@ class OperatorAssign : public Statement{
 	void UpdateStatementText();
 
 public:
-	OperatorAssign(Point Lcorner, string LeftHs = "",string RightHs1 = "",bool value1=false,string RightHsOpp = "",string RightHs2 = "",bool value2=false);
+	OperatorAssign(Point Lcorner=Point(-1,-1), string LeftHs = "", string RightHs1 = "", bool value1 = false, string RightHsOpp = "", string RightHs2 = "", bool value2 = false);
 
 	void setLHS(const string& L);
 	void setRHS1(const string& R1);
@@ -30,6 +30,7 @@ public:
 	void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
 	virtual void Save(ofstream& OutFile);
+	void Load(ifstream& Infile);
 
 };	
 

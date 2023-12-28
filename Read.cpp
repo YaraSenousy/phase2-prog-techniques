@@ -39,7 +39,12 @@ bool Read::InStatement(Point p)
 }
 void Read::Save(ofstream& OutFile)
 {
-	OutFile << "READ" << " " << ID <<" "<< Leftcorner.x << " " << Leftcorner.y << " " << VarName << endl;
+	OutFile << 7 << " " << ID <<" "<< Leftcorner.x << " " << Leftcorner.y << " " << VarName << endl;
+}
+void Read::Load(ifstream& Infile)
+{
+	Infile >> ID >> Leftcorner.x >> Leftcorner.y >> VarName;
+	UpdateStatementText();
 }
 void Read::UpdateStatementText() {
 	ostringstream T;

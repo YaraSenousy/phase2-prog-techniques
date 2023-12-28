@@ -12,6 +12,15 @@
 #include "DelAction.h"
 #include "AddCond.h"
 #include "SaveAction.h"
+#include "LoadAction.h"
+#include "Start.h"
+#include "End.h"
+#include "Write.h"
+#include "Read.h"
+#include "Condition.h"
+#include "statements\ValueAssign.h"
+#include "VariableAssign.h"
+#include "OperatorAssign.h"
 #include "Select_Unselect.h"
 #include "ExitingAct.h"
 #include "Copy.h"
@@ -27,6 +36,7 @@ ApplicationManager::ApplicationManager()
 	StatCount = 0;
 	ConnCount = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
+	pSelectedConnector = NULL;
 	pClipboard = NULL;
 	
 	//Create an array of Statement pointers and set them to NULL		
@@ -62,6 +72,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SAVE:
 			pAct = new SaveAction(this);
+			break;
+		case LOAD:
+			pAct = new LoadAction(this);
 			break;
 		case ADD_VALUE_ASSIGN:
 			pAct = new AddValueAssign(this);
@@ -193,33 +206,55 @@ void ApplicationManager::SaveAll(ofstream& OutFile)
 	}
 }
 
-void ApplicationManager::ExitAct()
+void ApplicationManager::LoadAll(ifstream& InFile)
 {
-	/*
-	pOut->ClearStatusBar();
-	pOut->PrintMessage("Deleting all statements");
-	for (int i = 0; i < StatCount; i++) {
-		delete StatList[i];
+	//removing any statement or connector on the drawing area first
+	//delete[] StatList;
+	//delete[] ConnList;
+	//reading from the file the number of statements
+	int s_count;
+	InFile >> s_count;
+	Statement* pStat;
+	int statement_type;
+	for (int i{}; i < s_count; i++) {
+		//reads the statement type and creates an object
+		InFile >> statement_type;
+		//create new statement
+		switch (statement_type)
+		{
+		case 1:
+			pStat = new Start();
+			break;
+		case 2:
+			pStat = new End();
+			break;
+		case 3:
+			pStat = new ValueAssign();
+			break;
+		case 4:
+			pStat = new VariableAssign();
+			break;
+		case 5:
+			pStat = new OperatorAssign();
+			break;
+		case 6:
+			pStat = new Condition();
+			break;
+		case 7:
+			pStat = new Read();
+			break;
+		case 8:
+			pStat = new Write();
+			break;
+		}
+		pStat->Load(InFile);
+		AddStatement(pStat);
 	}
-	StatList[0] = NULL;
-	UpdateInterface();
-	pIn->GetUserAction();
-	pOut->ClearStatusBar();
-	pOut->PrintMessage("Deleting all connectors");
-	for (int i = 0; i < ConnCount; i++) {
-		delete ConnList[i];
-	}
-	ConnList[0] = NULL;
-	UpdateInterface();
-	pIn->GetUserAction();
-	pOut->ClearStatusBar();
-	pOut->PrintMessage("CLick to delete input pointer");
-	pIn->GetUserAction();
-	pOut->PrintMessage("Deleting input pointer you can no longer click :) ");
-	delete pIn;*/
 }
 
-
+void ApplicationManager::ExitAct()
+{
+}
 //==================================================================================//
 //						Statements Management Functions								//
 //==================================================================================//

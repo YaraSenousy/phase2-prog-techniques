@@ -18,7 +18,7 @@ private:
 	void UpdateStatementText();
 
 public:
-	Condition(Point corner, string left = " ", string compop= " ", string right= " ", bool isval= true);
+	Condition(Point corner = Point(-1,-1), string left = "", string compop = "", string right = "", bool isval = false);
 
 	void setLHS(const string& left);
 	void setCompOp(const string& compop);
@@ -28,7 +28,10 @@ public:
 	virtual bool InStatement(Point p);
 
 	virtual void Save(ofstream& OutFile);
+	void Load(ifstream& Infile);
 	Point getOutlet_yesOrno(int branchtype);
+	Connector* getpConnOut(int branchtype); //checks branchtype and gets correct connector
+	virtual void SetpConnOut(Connector* conn,int branchtype); //checks branchtype and sets correct connector
 
 };
 #endif

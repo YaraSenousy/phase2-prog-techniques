@@ -40,7 +40,15 @@ void AddConn::ReadActionParameters()
 		else
 			Outlet_branch = 2; //no branch
 	}
-
+	if (dynamic_cast<Condition*>(start_stat)) {
+		Condition* cond = dynamic_cast<Condition*>(start_stat);
+		if (cond->getpConnOut(Outlet_branch) != NULL)
+			start_stat = NULL;
+			
+	}
+	else if (start_stat->GetConnOut() != NULL)
+		start_stat = NULL;
+		
 
 	//read end_stat from user
 	pOut->PrintMessage("Select the second statement");
@@ -60,14 +68,16 @@ void AddConn::Execute()
 	if (start_stat && end_stat) {
 		Connector* pConn = new Connector(start_stat, end_stat,Outlet_branch);
 		//setting the start and end point
-		if (Outlet_branch != 0) {  //yes or no branch
+		if (dynamic_cast<Condition*>(start_stat)) {
 			//casting the statement to condition
 			Condition* cond = dynamic_cast<Condition*>(start_stat);
 			//setting the start point to draw the connector to Yes or No point
 			pConn->setStartPoint(cond->getOutlet_yesOrno(Outlet_branch));
+			cond->SetpConnOut(pConn, Outlet_branch);
 		}
 		else
 			pConn->setStartPoint(start_stat->getOutlet());
+			start_stat->SetpConnOut(pConn);
 		
 
 		pConn->setEndPoint(end_stat->getInlet());

@@ -16,7 +16,7 @@ class VariableAssign : public Statement
 	virtual void UpdateStatementText();
 
 public:
-	VariableAssign(Point Lcorner, string LeftHS = "", string RightHS = "");
+	VariableAssign(Point Lcorner = Point(-1,-1), string LeftHS = "", string RightHS = "");
 
 	void setLHS(const string& L);
 	void setRHS(const string& R);
@@ -24,6 +24,7 @@ public:
 	virtual void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
 	virtual void Save(ofstream& OutFile);
+	void Load(ifstream& Infile);
 
 	Point getInlet();
 	Point getOutlet();
