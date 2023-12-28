@@ -35,8 +35,6 @@ void End::Save(ofstream& OutFile)
 void End::Load(ifstream& Infile)
 {
 	Infile >> ID >> LeftCorner.x >> LeftCorner.y;
-	Inlet.x = LeftCorner.x + UI.START_WDTH / 2;
-	Inlet.y = LeftCorner.y;
 	UpdateStatementText();
 }
 

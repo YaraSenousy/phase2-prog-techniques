@@ -47,11 +47,6 @@ void Write::Save(ofstream& OutFile)
 void Write::Load(ifstream& Infile)
 {
 	Infile >> ID >> Leftcorner.x >> Leftcorner.y >> VarOrString;
-	Inlet.x = Leftcorner.x + UI.IO_WDTH / 2;
-	Inlet.y = Leftcorner.y;
-
-	Outlet.x = Inlet.x;
-	Outlet.y = Leftcorner.y + UI.IO_HI;
 	UpdateStatementText();
 }
 
