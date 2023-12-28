@@ -4,6 +4,7 @@
 #include "GUI\UI_Info.h"
 #include "GUI\output.h"
 #include <fstream>
+#include "ApplicationManager.h"
 class Statement;
 
 class Connector	//a connector that connects two statements (Source & Destination)
@@ -17,7 +18,7 @@ private:
 
 	bool Selected; // true if the connector is selected 
 public:
-	Connector(Statement* Src, Statement* Dst, int branchtype);
+	Connector(Statement* Src = nullptr, Statement* Dst = nullptr, int branchtype = 0);
 
 	void		setSrcStat(Statement *Src);
 	Statement*	getSrcStat();	
@@ -34,6 +35,7 @@ public:
 	bool InConnector(Point p);
 	bool IsSelected();
 	void Save(ofstream& OutFile);
+	//void load(ifstream& Infile,ApplicationManager* pManager);
 	void SetSelected(bool s);
 };
 

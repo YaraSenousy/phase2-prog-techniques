@@ -1,5 +1,7 @@
 #include "Connector.h"
 #include "statements/Statement.h"
+
+
 Connector::Connector(Statement* Src, Statement* Dst,int branchtype)	
 //When a connector is created, it must have a source statement and a destination statement
 //There are NO FREE connectors in the flowchart
@@ -49,9 +51,6 @@ Point Connector::getEndPoint()
 
 void Connector::Draw(Output* pOut) const
 {
-	///TODO: Call Output to draw a connector from SrcStat to DstStat on the output window
-	//setStartPoint(SrcStat->getOutlet()); 
-	//setEndPoint(DstStat->getInlet());
 	pOut->DrawConnector(Start, End, Selected);
 }
 
@@ -72,3 +71,31 @@ void Connector::Save(ofstream& OutFile)
 {
 	OutFile << SrcStat->GetID() << " " << DstStat->GetID() << " " << Outlet_branch << endl;
 }
+
+/*void Connector::load(ifstream& Infile, ApplicationManager* pManager)
+{
+	int source_id;
+	int target_id;
+	int outletbranch;
+	//reading the source statement and target statement ids and the branch type
+	Infile >> source_id >> target_id >> outletbranch;
+	//getting the start statement
+	Statement* start_stat = pManager->getStatementWithId(source_id);
+	
+		/*//setting the start point of the connector
+		if (StatList[i]->GetID() == source_id)
+		{
+			if (outletbranch == 0)
+				Start = StatList[i]->getOutlet();
+			else {
+				//casting the statement to condition
+				Condition* cond = dynamic_cast<Condition*>(StatList[i]);
+				//setting the start point to draw the connector to Yes or No point
+				Start = cond->getOutlet_yesOrno(outletbranch));
+			}
+		}
+		//setting the end point
+		if (StatList[i]->GetID() == target_id)
+			end = StatList[i]->getInlet();
+	}*/
+}*/

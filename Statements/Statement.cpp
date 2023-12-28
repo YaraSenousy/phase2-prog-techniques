@@ -28,6 +28,7 @@ Point Statement::getOutlet()
 	return Outlet;
 }
 
+
 int Statement::GetID()
 {
 	return ID;

@@ -23,7 +23,6 @@ public:
 	void setLHS(const string& left);
 	void setCompOp(const string& compop);
 	void setRHS(const string& right);
-
 	void Draw(Output* pOut) const;
 	virtual bool InStatement(Point p);
 
