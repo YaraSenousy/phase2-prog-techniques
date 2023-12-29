@@ -68,12 +68,12 @@ void Connector::Draw(Output* pOut) const
 
 bool Connector::InConnector(Point p)
 {
-	if ((p.y <= Start.y+5) && (p.y >= Start.y - 5) && (p.x > Start.x) && (p.x < End.x)) {
+	if ((p.y <= Start.y + 7) && (p.y >= Start.y - 7) && (p.x > Start.x) && (p.x < End.x)) {
 	//check if the p is within the lines of the connector
 	
 		return true;
 	}
-	else if ((p.x <= End.x + 5) &&(p.x >= End.x - 5) && (p.y > Start.y) && (p.y < End.y))
+	else if ((p.x <= End.x + 7) &&(p.x >= End.x - 7) && (p.y > Start.y) && (p.y < End.y))
 		return true;
 	else
 		return false;

@@ -177,12 +177,14 @@ void ApplicationManager::DeleteConnStat(Point Pout1, Point Pout2, Point Pin)
 			ConnList[i] = ConnList[ConnCount - 1];
 			ConnList[ConnCount - 1] = NULL;
 			ConnCount--;
+			delpConnOut(ConnList[i]);
 		}
 	}
 }
 
 void ApplicationManager::DeleteConn(Connector* Conn)
 {
+	delpConnOut(Conn);
 	for (int i = 0; i < ConnCount; i++) {
 		if (Conn == ConnList[i]) {
 			delete ConnList[i];
@@ -190,6 +192,21 @@ void ApplicationManager::DeleteConn(Connector* Conn)
 			ConnList[ConnCount - 1] = NULL;
 			ConnCount--;
 		}
+	}
+}
+
+void ApplicationManager::delpConnOut(Connector* pConn)
+{
+	for (int i{}; i < StatCount; i++) {
+		Condition* cond = dynamic_cast<Condition*>(StatList[i]);
+		if (cond) {
+			if (cond->getpConnOut(1) == pConn)
+				cond->SetpConnOut(NULL, 1);
+			else if (cond->getpConnOut(2) == pConn)
+				cond->SetpConnOut(NULL, 2);
+		}
+		else
+			StatList[i]->SetpConnOut(NULL);
 	}
 }
 

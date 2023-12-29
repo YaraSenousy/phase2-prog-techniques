@@ -41,6 +41,7 @@ public:
 	void DeleteAction(Statement *statd); //Deletes a statement
 	void DeleteConnStat(Point Pout1,Point Pout2,Point Pin);
 	void DeleteConn(Connector* Conn);
+	void delpConnOut(Connector* pConn);
 	void SaveAll(ofstream& OutFile); //call Save function for each statement and connector
 	Statement* GetStatementWithID(int id); //takes an ID and return pointer to statement
 	void ExitAct();

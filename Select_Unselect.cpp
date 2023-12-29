@@ -30,11 +30,11 @@ void Select_Unselect::Execute()
 {	
 	ReadActionParameters();
 
-	if (pManager->GetSelectedStatement()) {
+	if (pManager->GetSelectedStatement() && pManager->GetSelectedStatement() != statement) {
 		(pManager->GetSelectedStatement())->SetSelected(false);
 		pManager->SetSelectedStatement(NULL);
 	}
-	if (pManager->GetSelectedConnector()) {
+	if (pManager->GetSelectedConnector() && pManager->GetSelectedConnector() != connector) {
 		(pManager->GetSelectedConnector()->SetSelected(false));
 		pManager->SetSelectedConnector(NULL);
 	}
